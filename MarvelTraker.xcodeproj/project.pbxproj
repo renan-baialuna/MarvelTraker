@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		8065527E26CCA139006E7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527D26CCA139006E7F38 /* AppDelegate.swift */; };
 		8065528026CCA139006E7F38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527F26CCA139006E7F38 /* SceneDelegate.swift */; };
-		8065528226CCA139006E7F38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065528126CCA139006E7F38 /* ViewController.swift */; };
+		8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065528126CCA139006E7F38 /* SearchViewController.swift */; };
 		8065528526CCA139006E7F38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8065528326CCA139006E7F38 /* Main.storyboard */; };
 		8065528826CCA139006E7F38 /* MarvelTraker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8065528626CCA139006E7F38 /* MarvelTraker.xcdatamodeld */; };
 		8065528A26CCA13D006E7F38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8065528926CCA13D006E7F38 /* Assets.xcassets */; };
 		8065528D26CCA13D006E7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8065528B26CCA13D006E7F38 /* LaunchScreen.storyboard */; };
+		8065529526CCA156006E7F38 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529426CCA156006E7F38 /* OTMClient.swift */; };
+		8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529726CF1A56006E7F38 /* apiStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8065527A26CCA139006E7F38 /* MarvelTraker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTraker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8065527D26CCA139006E7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8065527F26CCA139006E7F38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8065528126CCA139006E7F38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8065528126CCA139006E7F38 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8065528426CCA139006E7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8065528726CCA139006E7F38 /* MarvelTraker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelTraker.xcdatamodel; sourceTree = "<group>"; };
 		8065528926CCA13D006E7F38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8065528C26CCA13D006E7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8065528E26CCA13D006E7F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8065529426CCA156006E7F38 /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		8065529726CF1A56006E7F38 /* apiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,26 @@
 		8065527C26CCA139006E7F38 /* MarvelTraker */ = {
 			isa = PBXGroup;
 			children = (
+				8065529626CF1A29006E7F38 /* Controllers */,
 				8065527D26CCA139006E7F38 /* AppDelegate.swift */,
 				8065527F26CCA139006E7F38 /* SceneDelegate.swift */,
-				8065528126CCA139006E7F38 /* ViewController.swift */,
 				8065528326CCA139006E7F38 /* Main.storyboard */,
 				8065528926CCA13D006E7F38 /* Assets.xcassets */,
 				8065528B26CCA13D006E7F38 /* LaunchScreen.storyboard */,
 				8065528E26CCA13D006E7F38 /* Info.plist */,
 				8065528626CCA139006E7F38 /* MarvelTraker.xcdatamodeld */,
+				8065529426CCA156006E7F38 /* OTMClient.swift */,
+				8065529726CF1A56006E7F38 /* apiStruct.swift */,
 			);
 			path = MarvelTraker;
+			sourceTree = "<group>";
+		};
+		8065529626CF1A29006E7F38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8065528126CCA139006E7F38 /* SearchViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8065528226CCA139006E7F38 /* ViewController.swift in Sources */,
+				8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */,
+				8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */,
 				8065528826CCA139006E7F38 /* MarvelTraker.xcdatamodeld in Sources */,
+				8065529526CCA156006E7F38 /* OTMClient.swift in Sources */,
 				8065527E26CCA139006E7F38 /* AppDelegate.swift in Sources */,
 				8065528026CCA139006E7F38 /* SceneDelegate.swift in Sources */,
 			);
