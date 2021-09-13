@@ -51,6 +51,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSp-oS-c9n">
                                                 <rect key="frame" x="60" y="20" width="294" height="153.5"/>
                                                 <color key="backgroundColor" name="Secondary"/>
+                                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
                                                 <state key="normal" title="Search">
                                                     <color key="titleColor" name="Detail"/>
                                                 </state>
@@ -79,9 +80,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="167" height="173.5"/>
                                                         <state key="normal" title="My Comics"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKg-4K-hq4">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKg-4K-hq4" customClass="IconButton" customModule="MarvelTraker" customModuleProvider="target">
                                                         <rect key="frame" x="207" y="0.0" width="167" height="173.5"/>
                                                         <state key="normal" title="WhishList"/>
+                                                        <connections>
+                                                            <action selector="goWhish" destination="BYZ-38-t0r" eventType="touchUpInside" id="T9K-Hx-5KV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -108,6 +112,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UZx-ga-Yt2"/>
                     <connections>
+                        <outlet property="wishListButton" destination="fKg-4K-hq4" id="MRb-b4-S8d"/>
                         <segue destination="RbX-t3-y6i" kind="show" identifier="toResults" id="MAq-hy-CsW"/>
                     </connections>
                 </viewController>

@@ -10,10 +10,13 @@ import UIKit
 class SearchViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var searchTextView: UITextField!
+    @IBOutlet weak var wishListButton: IconButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
+        
         getCaracter(name: "Morbius")
     }
     
@@ -37,6 +40,10 @@ class SearchViewController: UIViewController {
     
     @IBAction func startSearch() {
         performSegue(withIdentifier: "toResults", sender: nil)
+    }
+    
+    @IBAction func goWhish() {
+        print("to Wish")
     }
  
 

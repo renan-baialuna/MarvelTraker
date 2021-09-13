@@ -16,6 +16,9 @@
 		8065528D26CCA13D006E7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8065528B26CCA13D006E7F38 /* LaunchScreen.storyboard */; };
 		8065529526CCA156006E7F38 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529426CCA156006E7F38 /* OTMClient.swift */; };
 		8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529726CF1A56006E7F38 /* apiStruct.swift */; };
+		80662CE526EEEF7D002985E5 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE426EEEF7D002985E5 /* IconButton.swift */; };
+		80662CE826EEF258002985E5 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE726EEF258002985E5 /* Extension+UIColor.swift */; };
+		80662CEA26EEF283002985E5 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE926EEF283002985E5 /* Extension+UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		8065528E26CCA13D006E7F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8065529426CCA156006E7F38 /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		8065529726CF1A56006E7F38 /* apiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiStruct.swift; sourceTree = "<group>"; };
+		80662CE426EEEF7D002985E5 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		80662CE726EEF258002985E5 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		80662CE926EEF283002985E5 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 		8065527C26CCA139006E7F38 /* MarvelTraker */ = {
 			isa = PBXGroup;
 			children = (
+				80662CE626EEF232002985E5 /* Extensions */,
+				80662CE326EEEF66002985E5 /* CustomElements */,
 				8065529626CF1A29006E7F38 /* Controllers */,
 				8065527D26CCA139006E7F38 /* AppDelegate.swift */,
 				8065527F26CCA139006E7F38 /* SceneDelegate.swift */,
@@ -82,6 +90,23 @@
 				8065528126CCA139006E7F38 /* SearchViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80662CE326EEEF66002985E5 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				80662CE426EEEF7D002985E5 /* IconButton.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		80662CE626EEF232002985E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80662CE726EEF258002985E5 /* Extension+UIColor.swift */,
+				80662CE926EEF283002985E5 /* Extension+UIImage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,10 +181,13 @@
 			files = (
 				8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */,
 				8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */,
+				80662CE526EEEF7D002985E5 /* IconButton.swift in Sources */,
 				8065528826CCA139006E7F38 /* MarvelTraker.xcdatamodeld in Sources */,
 				8065529526CCA156006E7F38 /* OTMClient.swift in Sources */,
 				8065527E26CCA139006E7F38 /* AppDelegate.swift in Sources */,
+				80662CEA26EEF283002985E5 /* Extension+UIImage.swift in Sources */,
 				8065528026CCA139006E7F38 /* SceneDelegate.swift in Sources */,
+				80662CE826EEF258002985E5 /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
