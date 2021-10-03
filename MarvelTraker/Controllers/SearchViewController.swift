@@ -8,15 +8,16 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var searchTextView: UITextField!
+    
     @IBOutlet weak var wishListButton: IconButton!
-
+    @IBOutlet weak var inventoryListButton: IconButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
-        
+        self.inventoryListButton.configure(image: .internalCollectionIcon, title: "My Comics")
         getCaracter(name: "Morbius")
     }
     
@@ -44,6 +45,10 @@ class SearchViewController: UIViewController {
     
     @IBAction func goWhish() {
         print("to Wish")
+    }
+    
+    @IBAction func goComics() {
+        performSegue(withIdentifier: "toInventory", sender: nil)
     }
  
 

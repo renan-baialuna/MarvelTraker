@@ -48,10 +48,7 @@ class IconButton: UIButton {
         icon.bottomAnchor.constraint(equalTo: mainLabel.topAnchor, constant: -10).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 40).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        
     }
-    
     
     public func configure(image: UIImage, title: String) {
         self.icon.image = image.withRenderingMode(.alwaysTemplate)
@@ -62,10 +59,4 @@ class IconButton: UIButton {
         super.init(frame: .zero)
         setup()
     }
-    
-    
-    
-    
-    
 }
-
