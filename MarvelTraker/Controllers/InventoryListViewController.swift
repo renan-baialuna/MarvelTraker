@@ -11,12 +11,13 @@ class InventoryListViewController: UIViewController {
     @IBOutlet weak var comicsTable: UITableView!
     
     var inventory: [BasicComicInventory] = []
+    var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         comicsTable.delegate = self
         comicsTable.dataSource = self
-        inventory.append(BasicComicInventory(comic: BasicComic(id: "q", title: "b", resume: "c", cover: .internalCaracterEmpty, launchDate: Date(), creators: [], link: "", value: 10.0), price: 20.0, aquisitonDate: Date(), condition: 5.0))
+        inventory.append(BasicComicInventory(comic: BasicComic(id: "q", title: "b", resume: "c", cover: .internalCaracterEmpty, launchDate: Date(), creators: [], link: "", pages: 100, value: 10.0, series: "the incredible"), price: 20.0, aquisitonDate: Date(), condition: 5.0))
 
     }
 
@@ -32,16 +33,27 @@ extension InventoryListViewController: UITableViewDelegate, UITableViewDataSourc
         let comic = inventory[indexPath.row]
         cell.comicImage.image = comic.comic.cover
         cell.nameLabel.text = comic.comic.title
-        cell.dateLabel.text = comic.aquisitonDate.description
+        cell.dateLabel.text = comic.aquisitonDate.getDateString()
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+        selectedIndex = indexPath.row
         
         return CGFloat(190)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetails", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            var vc = segue.destination as! InventoryDetailViewController
+            vc.comic = inventory[selectedIndex]
+        }
     }
 
     

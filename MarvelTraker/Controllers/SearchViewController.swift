@@ -11,14 +11,23 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var wishListButton: IconButton!
     @IBOutlet weak var inventoryListButton: IconButton!
+    @IBOutlet weak var searchButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButton()
+        
         // Do any additional setup after loading the view.
         self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
         self.inventoryListButton.configure(image: .internalCollectionIcon, title: "My Comics")
         getCaracter(name: "Morbius")
+    }
+    
+    func setupButton() {
+        searchButton.layer.cornerRadius = 10
+        searchButton.layer.borderWidth = 2
+        searchButton.layer.borderColor = UIColor.detail.cgColor
     }
     
     func getCaracter(name: String) {
@@ -44,7 +53,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func goWhish() {
-        print("to Wish")
+        performSegue(withIdentifier: "toWhishlist", sender: nil)
     }
     
     @IBAction func goComics() {

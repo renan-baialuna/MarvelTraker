@@ -40,13 +40,9 @@ class ComicDetailViewController: UIViewController {
     }
     
     func setupImage() {
-//        comicImageButton.setTitle("", for: .normal)
         comicImageButton.setImage(.internalComicPlaceholder, for: .normal)
     }
-    
-    @IBAction func openLink() {
-        print("link")
-    }
+
     
     @IBAction func toInformation(_ sender: Any) {
         performSegue(withIdentifier: "toDetail", sender: nil)
@@ -57,7 +53,24 @@ class ComicDetailViewController: UIViewController {
     @IBAction func goAquisiton() {
         performSegue(withIdentifier: "toAquisition", sender: nil)
     }
- 
+    
+    @IBAction func addToWish(_ sender: Any) {
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func openImage() {
+        performSegue(withIdentifier: "toImage", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toImage" {
+            var vc = segue.destination as!  ImageDetailViewController
+            vc.image = comic.cover
+            
+            
+        }
+    }
     
 }
 

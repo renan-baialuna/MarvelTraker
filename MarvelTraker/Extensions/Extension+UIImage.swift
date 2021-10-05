@@ -17,4 +17,5 @@ extension UIImage {
     static var internalWebIcon: UIImage  { return UIImage(named: "webIcon")! }
     static var internalComicPlaceholder: UIImage { return UIImage(named: "PlaceholderComic")! }
     static var internalCharaterPlaceholder: UIImage { return UIImage(named: "CaracterPlaceholder")! }
+    static var internalEditIcon: UIImage { return UIImage(named: "EditIcon")! }
 }

@@ -16,7 +16,9 @@ struct BasicComic {
     let launchDate: Date
     let creators: [String]
     let link: String
+    let pages: Int
     let value: Float
+    let series: String
 }
 
 struct BasicEvent {
