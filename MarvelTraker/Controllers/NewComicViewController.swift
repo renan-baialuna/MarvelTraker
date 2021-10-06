@@ -22,6 +22,7 @@ class NewComicViewController: UIViewController {
     
     var comics: [BasicComic] = mocks().mockComics()
     var selectedComic: Int = 0
+    var target: String = "Morbius"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,28 @@ class NewComicViewController: UIViewController {
         comicCollection.delegate = self
         comicCollection.dataSource = self
         
+        print(target)
+        
     }
+    
+    func getCaracter(name: String) {
+        let hash = OTMClient().createHash()
+        OTMClient.taskForGetRequest(url: OTMClient.Endpoints.getCaracter(name, hash).url,  responseType: CaracterResponse.self) { [self] (response, error) in
+            if error == nil {
+                print(response)
+                if let results = response?.data.results {
+                    for i in results {
+                        print(i.name)
+                    }
+                }
+                
+                
+            } else {
+//
+            }
+        }
+    }
+    
 }
 
 

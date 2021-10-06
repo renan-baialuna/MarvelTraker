@@ -13,7 +13,7 @@ class NewEventViewController: UIViewController {
 
     @IBOutlet weak var eventTable: UITableView!
     var selectedEvent: Int = 0
-    
+    var target: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTable.dataSource = self

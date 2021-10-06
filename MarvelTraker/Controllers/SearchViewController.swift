@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var wishListButton: IconButton!
     @IBOutlet weak var inventoryListButton: IconButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -58,6 +59,14 @@ class SearchViewController: UIViewController {
     
     @IBAction func goComics() {
         performSegue(withIdentifier: "toInventory", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResults" {
+            var vc = segue.destination as! SearchTabBarController
+            vc.target = searchTextField.text
+            
+        }
     }
  
 

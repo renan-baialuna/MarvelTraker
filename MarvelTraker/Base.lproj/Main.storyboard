@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gZL-gx-qz0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VsK-bf-Tkw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -130,6 +130,7 @@
                     <connections>
                         <outlet property="inventoryListButton" destination="q8V-bd-gNc" id="Z4I-pq-5zP"/>
                         <outlet property="searchButton" destination="GSp-oS-c9n" id="M18-6Y-eNm"/>
+                        <outlet property="searchTextField" destination="P2J-UC-bML" id="Bh8-Wg-YU9"/>
                         <outlet property="wishListButton" destination="fKg-4K-hq4" id="MRb-b4-S8d"/>
                         <segue destination="RbX-t3-y6i" kind="show" identifier="toResults" id="MAq-hy-CsW"/>
                         <segue destination="t14-Ti-Nrm" kind="show" identifier="toInventory" id="0Zv-2E-WEf"/>
@@ -1506,7 +1507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1E-Uk-INL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3348" y="2304"/>
+            <point key="canvasLocation" x="3348" y="2125"/>
         </scene>
         <!--Caracter-->
         <scene sceneID="Hak-YE-h2o">
@@ -1735,10 +1736,10 @@
             </objects>
             <point key="canvasLocation" x="3347.826086956522" y="359.59821428571428"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Search Tab Bar Controller-->
         <scene sceneID="awG-vE-T59">
             <objects>
-                <tabBarController id="RbX-t3-y6i" sceneMemberID="viewController">
+                <tabBarController id="RbX-t3-y6i" customClass="SearchTabBarController" customModule="MarvelTraker" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="wQE-7B-zqL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ir6-gu-5vb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

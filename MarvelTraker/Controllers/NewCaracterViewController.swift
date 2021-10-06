@@ -14,6 +14,7 @@ class NewCaracterViewController: UIViewController {
     
     var selectedIndex: Int = 0
     var caracters: [BasicCharacter] = []
+    var target: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         caracterCollection.delegate = self
