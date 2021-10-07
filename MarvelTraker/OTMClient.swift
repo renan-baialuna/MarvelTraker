@@ -10,6 +10,13 @@ import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
+enum EndpointTypes {
+    case caracter
+    case comic
+}
+
+
+
 class OTMClient {
     struct hashStruct: Hashable {
         var ts: String
@@ -27,22 +34,21 @@ class OTMClient {
         return MD5(string: strBase)
     }
     
-    enum Endpoints  {
+    public func getEndpoint(type: EndpointTypes, target: String) -> URL? {
+        let baseUrl = "https://gateway.marvel.com:443/v1/public/"
+        let baseImage = ""
+        var urlString: String = ""
+        var hash: String = createHash()
         
-        case getCaracter(String, String)
+        switch type {
+        case .comic:
+            urlString = "\(baseUrl)comics?titleStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
+        case .caracter:
+            urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
+        }
         
-        var stringValue: String {
-            let time = String(NSDate().timeIntervalSince1970)
-            
-            switch self {
-            case .getCaracter(let name, let hash):
-                return "https://gateway.marvel.com:443/v1/public/characters?ts=thesoer&name=\(name)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
-            }
-        }
-        var url: URL {
-            print(stringValue)
-            return URL(string: stringValue)!
-        }
+        
+        return URL(string: urlString)
     }
     
     @discardableResult class func taskForGetRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping(ResponseType?, Error?) -> Void) -> URLSessionTask {
@@ -61,6 +67,7 @@ class OTMClient {
                 }
             } catch {
                 DispatchQueue.main.async {
+                    print(error)
                     completion(nil, error)
                 }
             }

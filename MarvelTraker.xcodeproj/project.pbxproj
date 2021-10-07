@@ -32,6 +32,7 @@
 		806FF6F0270CB78A0060F513 /* Extension+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6EF270CB7890060F513 /* Extension+Float.swift */; };
 		806FF6F2270CB7F20060F513 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F1270CB7F20060F513 /* Extension+String.swift */; };
 		806FF6F4270CE5C50060F513 /* SearchTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */; };
+		806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F7270E34A30060F513 /* ComicResponse.swift */; };
 		8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081967226FC128B0014B1BE /* ContinueButton.swift */; };
 		809B106526F382EF00CAF7AD /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */; };
 		80AD4D9527033440000D2146 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		806FF6EF270CB7890060F513 /* Extension+Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Float.swift"; sourceTree = "<group>"; };
 		806FF6F1270CB7F20060F513 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarController.swift; sourceTree = "<group>"; };
+		806FF6F7270E34A30060F513 /* ComicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResponse.swift; sourceTree = "<group>"; };
 		8081967226FC128B0014B1BE /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		8065527C26CCA139006E7F38 /* MarvelTraker */ = {
 			isa = PBXGroup;
 			children = (
+				806FF6F5270E347B0060F513 /* Model */,
 				80662CF026F03950002985E5 /* Structs */,
 				80662CEB26F02EB1002985E5 /* Cells */,
 				80662CE626EEF232002985E5 /* Extensions */,
@@ -133,7 +136,6 @@
 				8065528E26CCA13D006E7F38 /* Info.plist */,
 				8065528626CCA139006E7F38 /* MarvelTraker.xcdatamodeld */,
 				8065529426CCA156006E7F38 /* OTMClient.swift */,
-				8065529726CF1A56006E7F38 /* apiStruct.swift */,
 			);
 			path = MarvelTraker;
 			sourceTree = "<group>";
@@ -198,9 +200,26 @@
 		80662CF026F03950002985E5 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
+				8065529726CF1A56006E7F38 /* apiStruct.swift */,
 				80662CF126F0396C002985E5 /* BasicStructs.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		806FF6F5270E347B0060F513 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				806FF6F6270E34880060F513 /* OTM Responses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		806FF6F6270E34880060F513 /* OTM Responses */ = {
+			isa = PBXGroup;
+			children = (
+				806FF6F7270E34A30060F513 /* ComicResponse.swift */,
+			);
+			path = "OTM Responses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +300,7 @@
 				806FF6F0270CB78A0060F513 /* Extension+Float.swift in Sources */,
 				8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */,
 				80662CF226F0396C002985E5 /* BasicStructs.swift in Sources */,
+				806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */,
 				80662CE526EEEF7D002985E5 /* IconButton.swift in Sources */,
 				80DA7428270945760057CB71 /* InventoryListViewController.swift in Sources */,
 				80AD4D9D2704A52E000D2146 /* NewCaracterViewController.swift in Sources */,

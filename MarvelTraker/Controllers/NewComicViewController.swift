@@ -22,35 +22,74 @@ class NewComicViewController: UIViewController {
     
     var comics: [BasicComic] = mocks().mockComics()
     var selectedComic: Int = 0
-    var target: String = "Morbius"
+    var target: String = "incredible"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         comicCollection.delegate = self
         comicCollection.dataSource = self
-        
-        print(target)
+        getCaracter(name: target)
         
     }
     
     func getCaracter(name: String) {
         let hash = OTMClient().createHash()
-        OTMClient.taskForGetRequest(url: OTMClient.Endpoints.getCaracter(name, hash).url,  responseType: CaracterResponse.self) { [self] (response, error) in
-            if error == nil {
-                print(response)
-                if let results = response?.data.results {
-                    for i in results {
-                        print(i.name)
+        if let url = OTMClient().getEndpoint(type: .comic, target: target) {
+            OTMClient.taskForGetRequest(url: url,  responseType: ComicResponse.self) { [self] (response, error) in
+                if error == nil {
+                    if let results = response?.data.results {
+                        for i in results {
+                            print(i.title)
+                        }
                     }
+                } else {
+    //
                 }
-                
-                
-            } else {
-//
             }
         }
+        
+//        OTMClient.taskForGetRequest(url: OTMClient.getCaract,  responseType: ComicResponse.self) { [self] (response, error) in
+//            if error == nil {
+//                print(response)
+//                if let results = response?.data.results {
+//                    for i in results {
+//                        print(i.title)
+//                    }
+//                }
+//
+//
+//            } else {
+////
+//            }
+//        }
     }
+    
+    
+    func getPhoto(id: String, urlString: String) {
+        if let url = URL(string: urlString) {
+
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                
+                if error != nil {
+                }
+                if let safeData = data {
+                    if let downloadedImage = UIImage(data: safeData) {
+//                        self.addUpdatePhoto(id: id, image: downloadedImage)
+//                        DispatchQueue.main.async {
+//                            self.photosCollection.reloadData()
+//                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+       
+    }
+    
+    
     
 }
 

@@ -19,10 +19,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupButton()
         
-        // Do any additional setup after loading the view.
         self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
         self.inventoryListButton.configure(image: .internalCollectionIcon, title: "My Comics")
-        getCaracter(name: "Morbius")
     }
     
     func setupButton() {
@@ -31,23 +29,6 @@ class SearchViewController: UIViewController {
         searchButton.layer.borderColor = UIColor.detail.cgColor
     }
     
-    func getCaracter(name: String) {
-        let hash = OTMClient().createHash()
-        OTMClient.taskForGetRequest(url: OTMClient.Endpoints.getCaracter(name, hash).url,  responseType: CaracterResponse.self) { [self] (response, error) in
-            if error == nil {
-                print(response)
-                if let results = response?.data.results {
-                    for i in results {
-                        print(i.name)
-                    }
-                }
-                
-                
-            } else {
-//
-            }
-        }
-    }
     
     @IBAction func startSearch() {
         performSegue(withIdentifier: "toResults", sender: nil)
