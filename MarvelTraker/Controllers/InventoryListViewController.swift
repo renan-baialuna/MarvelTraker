@@ -17,7 +17,7 @@ class InventoryListViewController: UIViewController {
         super.viewDidLoad()
         comicsTable.delegate = self
         comicsTable.dataSource = self
-        inventory.append(BasicComicInventory(comic: BasicComic(id: "q", title: "b", resume: "c", cover: .internalCaracterEmpty, launchDate: Date(), creators: [], link: "", pages: 100, value: 10.0, series: "the incredible"), price: 20.0, aquisitonDate: Date(), condition: 5.0))
+//        inventory.append(BasicComicInventory(comic: BasicComic(id: "q", title: "b", resume: "c", cover: .internalCaracterEmpty, launchDate: Date(), creators: [], link: "", pages: 100, value: 10.0, series: "the incredible"), price: 20.0, aquisitonDate: Date(), condition: 5.0))
 
     }
 

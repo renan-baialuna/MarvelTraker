@@ -7,12 +7,12 @@
 
 import UIKit
 
-class mocks {
-    public func mockComics() -> [BasicComic] {
-        let mock: [BasicComic] = [BasicComic(id: "1", title: "Primeiro", resume: "resumo", cover: UIImage.internalAddIcon, launchDate: Date(), creators: ["first creator", "seccond creator"], link: "www.google.com", pages: 200, value: 12.50, series: "the spetacular")]
-        return mock
-    }
-}
+//class mocks {
+//    public func mockComics() -> [BasicComic] {
+//        let mock: [BasicComic] = [BasicComic(id: "1", title: "Primeiro", resume: "resumo", cover: UIImage.internalAddIcon, launchDate: Date(), creators: ["first creator", "seccond creator"], link: "www.google.com", pages: 200, value: 12.50, series: "the spetacular")]
+//        return mock
+//    }
+//}
 
 
 
@@ -20,9 +20,10 @@ class NewComicViewController: UIViewController {
     
     @IBOutlet weak var comicCollection: UICollectionView!
     
-    var comics: [BasicComic] = mocks().mockComics()
+    var comics: [BasicComic] = []
     var selectedComic: Int = 0
     var target: String = "incredible"
+    var client: OTMClient = OTMClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,15 @@ class NewComicViewController: UIViewController {
         if let url = OTMClient().getEndpoint(type: .comic, target: target) {
             OTMClient.taskForGetRequest(url: url,  responseType: ComicResponse.self) { [self] (response, error) in
                 if error == nil {
+                    var index: Int = 0
                     if let results = response?.data.results {
                         for i in results {
-                            print(i.title)
+                            comics.append(client.translateAPI(base: i))
+                            if i.images.count > 0 {
+                                getImage(index: index, url: client.getEndpoint(data: i.images[0], size: .portrait_medium)!)
+                            }
+                            comicCollection.reloadData()
+                            index += 1
                         }
                     }
                 } else {
@@ -49,48 +56,26 @@ class NewComicViewController: UIViewController {
             }
         }
         
-//        OTMClient.taskForGetRequest(url: OTMClient.getCaract,  responseType: ComicResponse.self) { [self] (response, error) in
-//            if error == nil {
-//                print(response)
-//                if let results = response?.data.results {
-//                    for i in results {
-//                        print(i.title)
-//                    }
-//                }
-//
-//
-//            } else {
-////
-//            }
-//        }
-    }
-    
-    
-    func getPhoto(id: String, urlString: String) {
-        if let url = URL(string: urlString) {
-
+        func getImage(index: Int, url: URL) {
             let session = URLSession(configuration: .default)
-            
             let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
                 
                 if error != nil {
                 }
                 if let safeData = data {
                     if let downloadedImage = UIImage(data: safeData) {
-//                        self.addUpdatePhoto(id: id, image: downloadedImage)
-//                        DispatchQueue.main.async {
-//                            self.photosCollection.reloadData()
-//                        }
+                        DispatchQueue.main.async { [self] in
+                            comics[index].cover = downloadedImage
+                            comicCollection.reloadData()
+                        }
+                        
                     }
                 }
             }
             task.resume()
         }
-       
+
     }
-    
-    
-    
 }
 
 

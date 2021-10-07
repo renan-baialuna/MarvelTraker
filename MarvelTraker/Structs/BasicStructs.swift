@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 struct BasicComic {
-    let id: String
+    let id: Int
     let title: String
     let resume: String
-    let cover: UIImage
+    var cover: UIImage
     let launchDate: Date
     let creators: [String]
     let link: String

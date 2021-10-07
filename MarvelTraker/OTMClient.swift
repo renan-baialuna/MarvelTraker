@@ -13,6 +13,12 @@ import typealias CommonCrypto.CC_LONG
 enum EndpointTypes {
     case caracter
     case comic
+    case image
+}
+
+enum ImageSizes: String {
+    case portrait_medium = "portrait_medium"
+    case portrait_xlarge = "portrait_xlarge"
 }
 
 
@@ -45,11 +51,41 @@ class OTMClient {
             urlString = "\(baseUrl)comics?titleStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         case .caracter:
             urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
+        case .image:
+            urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
         }
         
         
         return URL(string: urlString)
     }
+    
+    public func getEndpoint(data: ImageFormat, size: ImageSizes = .portrait_medium) -> URL? {
+        
+        return URL(string: "\(data.path)/\(size.rawValue).\(data.extensionFormat)")
+    }
+    
+    public func translateAPI(base: ResultComic) -> BasicComic {
+        var creators: [String] = []
+        for i in base.creators.items {
+            creators.append(i.name)
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let newDate = dateFormatter.date(from: base.dates[0].date)!
+        
+        return BasicComic(id: base.id,
+                          title: base.title,
+                          resume: base.description ?? "no resume given",
+                          cover: .internalComicPlaceholder,
+                          launchDate: newDate,
+                          creators: creators,
+                          link: base.resourceURI,
+                          pages: base.pageCount,
+                          value: base.prices[0].price,
+                          series: base.series.name)
+    }
+    
     
     @discardableResult class func taskForGetRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping(ResponseType?, Error?) -> Void) -> URLSessionTask {
         

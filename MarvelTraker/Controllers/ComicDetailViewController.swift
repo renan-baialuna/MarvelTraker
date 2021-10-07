@@ -40,7 +40,7 @@ class ComicDetailViewController: UIViewController {
     }
     
     func setupImage() {
-        comicImageButton.setImage(.internalComicPlaceholder, for: .normal)
+        comicImageButton.setImage(comic.cover, for: .normal)
     }
 
     
@@ -67,8 +67,6 @@ class ComicDetailViewController: UIViewController {
         if segue.identifier == "toImage" {
             var vc = segue.destination as!  ImageDetailViewController
             vc.image = comic.cover
-            
-            
         }
     }
     

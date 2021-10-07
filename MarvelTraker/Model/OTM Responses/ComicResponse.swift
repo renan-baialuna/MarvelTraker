@@ -25,7 +25,7 @@ struct ResultComic: Codable {
     let id: Int
     let title: String
     let description: String?
-    let image: ImageFormat?
+    let images: [ImageFormat]
     let dates: [DateFormat]
     let creators: Creators
     let resourceURI: String

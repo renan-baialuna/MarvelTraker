@@ -9,7 +9,7 @@ import UIKit
 
 class WhislistCollectionViewController: UIViewController {
 
-    var wishList: [BasicComic] = [BasicComic(id: "1", title: "title", resume: "resime", cover: .internalAddIcon, launchDate: Date(), creators: ["primeiro", "segundo"], link: "link", pages: 30, value: 30.00, series: "series"), BasicComic(id: "1", title: "title", resume: "resime", cover: .internalAddIcon, launchDate: Date(), creators: ["primeiro", "segundo"], link: "link", pages: 30, value: 30.00, series: "series"), BasicComic(id: "1", title: "title", resume: "resime", cover: .internalAddIcon, launchDate: Date(), creators: ["primeiro", "segundo"], link: "link", pages: 30, value: 30.00, series: "series"), BasicComic(id: "1", title: "title", resume: "resime", cover: .internalAddIcon, launchDate: Date(), creators: ["primeiro", "segundo"], link: "link", pages: 30, value: 30.00, series: "series")]
+    var wishList: [BasicComic] = []
     var index: Int = 0
     
     @IBOutlet weak var whishCollection: UICollectionView!
