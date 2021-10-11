@@ -45,7 +45,7 @@ class InventoryDetailViewController: UIViewController {
     func setData() {
         titleLabel.text = comic.comic.title
         serieLabel.text = comic.comic.series
-        coverImageView.image = comic.comic.cover
+//        coverImageView.image = comic.comic.cover
         lanchDateLabel.text = "Lauch: \(comic.comic.launchDate.getDateString())"
         aditionDateLabel.text = "Aquisition \(comic.aquisitonDate.getDateString())"
         valueLabel.text = "price: \(comic.price)"

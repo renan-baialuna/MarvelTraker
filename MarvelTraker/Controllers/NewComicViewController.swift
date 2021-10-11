@@ -15,12 +15,22 @@ import UIKit
 //}
 
 
+class UnitComic {
+    var base: BasicComic
+    var image: UIImage
+    
+    init(base: BasicComic, image: UIImage) {
+        self.base = base
+        self.image = image
+    }
+}
+
 
 class NewComicViewController: UIViewController {
     
     @IBOutlet weak var comicCollection: UICollectionView!
     
-    var comics: [BasicComic] = []
+    var comics: [UnitComic] = []
     var selectedComic: Int = 0
     var target: String = "incredible"
     var client: OTMClient = OTMClient()
@@ -39,15 +49,16 @@ class NewComicViewController: UIViewController {
         if let url = OTMClient().getEndpoint(type: .comic, target: target) {
             OTMClient.taskForGetRequest(url: url,  responseType: ComicResponse.self) { [self] (response, error) in
                 if error == nil {
-                    var index: Int = 0
                     if let results = response?.data.results {
                         for i in results {
-                            comics.append(client.translateAPI(base: i))
+                            var newComic = UnitComic(base: client.translateAPI(base: i), image: .internalComicPlaceholder)
+                            comics.append(newComic)
                             if i.images.count > 0 {
-                                getImage(index: index, url: client.getEndpoint(data: i.images[0], size: .portrait_medium)!)
+                                
+                                
+                                getImage(comic: newComic)
                             }
                             comicCollection.reloadData()
-                            index += 1
                         }
                     }
                 } else {
@@ -56,23 +67,25 @@ class NewComicViewController: UIViewController {
             }
         }
         
-        func getImage(index: Int, url: URL) {
+        func getImage(comic: UnitComic) {
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-                
-                if error != nil {
-                }
-                if let safeData = data {
-                    if let downloadedImage = UIImage(data: safeData) {
-                        DispatchQueue.main.async { [self] in
-                            comics[index].cover = downloadedImage
-                            comicCollection.reloadData()
+            if let url = client.getEndpoint(data: comic.base.cover, size: .portrait_medium) {
+                let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                    
+                    if error != nil {
+                    }
+                    if let safeData = data {
+                        if let downloadedImage = UIImage(data: safeData) {
+                            DispatchQueue.main.async { [self] in
+                                comic.image = downloadedImage
+                                comicCollection.reloadData()
+                            }
+                            
                         }
-                        
                     }
                 }
+                task.resume()
             }
-            task.resume()
         }
 
     }
@@ -89,7 +102,7 @@ extension NewComicViewController: UICollectionViewDelegate, UICollectionViewData
         let comic = self.comics[indexPath.row]
         
         
-        cell.setup(title: comic.title, image: comic.cover)
+        cell.setup(title: comic.base.title, image: comic.image)
         
         return cell
     }
@@ -110,7 +123,7 @@ extension NewComicViewController: UICollectionViewDelegate, UICollectionViewData
         if segue.identifier == "toComicDetails" {
             let vc = segue.destination as! ComicDetailViewController
             
-            vc.comic = comics[selectedComic]
+            vc.comic = comics[selectedComic].base
             
               
         }

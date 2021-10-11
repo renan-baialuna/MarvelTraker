@@ -33,7 +33,7 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
         let comic = wishList[indexPath.row]
         cell.authorLabel.text = comic.creators[0]
         cell.titleLabel.text = comic.title
-        cell.coverImage.image = comic.cover
+//        cell.coverImage.image = comic.cover
         
         return cell
     }

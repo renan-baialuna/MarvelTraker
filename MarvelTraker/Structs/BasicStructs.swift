@@ -12,7 +12,7 @@ struct BasicComic {
     let id: Int
     let title: String
     let resume: String
-    var cover: UIImage
+    let cover: ImageFormat
     let launchDate: Date
     let creators: [String]
     let link: String

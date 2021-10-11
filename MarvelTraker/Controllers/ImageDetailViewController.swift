@@ -10,12 +10,11 @@ import UIKit
 class ImageDetailViewController: UIViewController {
 
     @IBOutlet weak var mainImage: UIImageView!
-    var image: UIImage = .internalAddIcon
+    var newImage = ImageFormat(path: "http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73", extensionFormat: "jpg")
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var imageStructure = ImageFormat(path: "http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73", extensionFormat: "jpg")
-        if let url = OTMClient().getEndpoint(data: imageStructure, size: .portrait_xlarge) {
+        if let url = OTMClient().getEndpoint(data: newImage, size: .portrait_incredible) {
             getImage(url: url)
         }
         

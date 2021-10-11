@@ -19,6 +19,7 @@ enum EndpointTypes {
 enum ImageSizes: String {
     case portrait_medium = "portrait_medium"
     case portrait_xlarge = "portrait_xlarge"
+    case portrait_incredible = "portrait_incredible"
 }
 
 
@@ -77,7 +78,7 @@ class OTMClient {
         return BasicComic(id: base.id,
                           title: base.title,
                           resume: base.description ?? "no resume given",
-                          cover: .internalComicPlaceholder,
+                          cover: base.images[0],
                           launchDate: newDate,
                           creators: creators,
                           link: base.resourceURI,

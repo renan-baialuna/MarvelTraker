@@ -37,7 +37,7 @@ class WishDetailViewController: UIViewController {
     }
     
     func setData() {
-        coverImageView.image = comic.cover
+//        coverImageView.image = comic.cover
         pagesLabel.text = "pages \(comic.pages)"
         launchDateLabel.text = "release date: \(comic.launchDate.getDateString())"
         seriesLabel.text = comic.series
@@ -74,7 +74,7 @@ class WishDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toImage" {
             var vc = segue.destination as! ImageDetailViewController
-            vc.image = comic.cover
+//            vc.image = comic.cover
         }
     }
 }

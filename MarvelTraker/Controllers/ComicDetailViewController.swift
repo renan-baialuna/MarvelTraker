@@ -17,7 +17,7 @@ class ComicDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var whishButton: ContinueButton!
     @IBOutlet weak var aquisitonButton: ContinueButton!
-    
+    var client: OTMClient = OTMClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,22 @@ class ComicDetailViewController: UIViewController {
     }
     
     func setupImage() {
-        comicImageButton.setImage(comic.cover, for: .normal)
+        let session = URLSession(configuration: .default)
+        if let url = client.getEndpoint(data: comic.cover, size: .portrait_medium) {
+            let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                
+                if error != nil {
+                }
+                if let safeData = data {
+                    if let downloadedImage = UIImage(data: safeData) {
+                        DispatchQueue.main.async { [self] in
+                            comicImageButton.setImage(downloadedImage, for: .normal)
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
     }
 
     
@@ -66,7 +81,8 @@ class ComicDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toImage" {
             var vc = segue.destination as!  ImageDetailViewController
-            vc.image = comic.cover
+//            vc.image = comic.cover
+            vc.newImage = comic.cover
         }
     }
     

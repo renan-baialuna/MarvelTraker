@@ -31,7 +31,7 @@ extension InventoryListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "inventaryCell") as! InventoryTableViewCell
         let comic = inventory[indexPath.row]
-        cell.comicImage.image = comic.comic.cover
+//        cell.comicImage.image = comic.comic.cover
         cell.nameLabel.text = comic.comic.title
         cell.dateLabel.text = comic.aquisitonDate.getDateString()
         
