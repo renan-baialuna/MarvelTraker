@@ -18,4 +18,5 @@ extension UIImage {
     static var internalComicPlaceholder: UIImage { return UIImage(named: "PlaceholderComic")! }
     static var internalCharaterPlaceholder: UIImage { return UIImage(named: "CaracterPlaceholder")! }
     static var internalEditIcon: UIImage { return UIImage(named: "EditIcon")! }
+    static var internalEventPlaceholder: UIImage { return UIImage(named: "EventPlaceholder")! }
 }

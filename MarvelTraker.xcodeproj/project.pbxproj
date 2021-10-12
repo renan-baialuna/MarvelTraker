@@ -33,6 +33,7 @@
 		806FF6F2270CB7F20060F513 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F1270CB7F20060F513 /* Extension+String.swift */; };
 		806FF6F4270CE5C50060F513 /* SearchTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */; };
 		806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F7270E34A30060F513 /* ComicResponse.swift */; };
+		807771E02713C6D00086DE66 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771DF2713C6D00086DE66 /* EventResponse.swift */; };
 		8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081967226FC128B0014B1BE /* ContinueButton.swift */; };
 		809B106526F382EF00CAF7AD /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */; };
 		80AD4D9527033440000D2146 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */; };
@@ -77,6 +78,7 @@
 		806FF6F1270CB7F20060F513 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarController.swift; sourceTree = "<group>"; };
 		806FF6F7270E34A30060F513 /* ComicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResponse.swift; sourceTree = "<group>"; };
+		807771DF2713C6D00086DE66 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		8081967226FC128B0014B1BE /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				806FF6F7270E34A30060F513 /* ComicResponse.swift */,
+				807771DF2713C6D00086DE66 /* EventResponse.swift */,
 			);
 			path = "OTM Responses";
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				80AD4D9527033440000D2146 /* CreatorTableViewCell.swift in Sources */,
 				806FF6F2270CB7F20060F513 /* Extension+String.swift in Sources */,
 				806FF6EC270C854D0060F513 /* WhishCollectionViewCell.swift in Sources */,
+				807771E02713C6D00086DE66 /* EventResponse.swift in Sources */,
 				8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */,
 				80DA742627077FD70057CB71 /* ComicAquisitionViewController.swift in Sources */,
 				80AD4D992703A061000D2146 /* EventTableViewCell.swift in Sources */,

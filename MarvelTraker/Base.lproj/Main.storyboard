@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VsK-bf-Tkw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="30h-dY-5Kx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -411,13 +411,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jss-8c-VGC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="256.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-xW-5GK">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-xW-5GK">
                                                 <rect key="frame" x="78.5" y="0.0" width="257" height="256.5"/>
                                                 <color key="backgroundColor" name="Secondary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="JZO-xW-5GK" secondAttribute="height" multiplier="1:1" id="NrJ-ef-rXL"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="toImage" destination="Joh-v0-dKh" eventType="touchUpInside" id="O9l-g3-mJD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
@@ -436,7 +438,7 @@
                                                 <color key="textColor" name="Selection"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5py-Ff-eKm">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5py-Ff-eKm">
                                                 <rect key="frame" x="20" y="28.5" width="374" height="223.5"/>
                                                 <color key="backgroundColor" name="Secondary"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -534,9 +536,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="mjU-gi-cML"/>
                     <connections>
+                        <outlet property="coverImageButton" destination="JZO-xW-5GK" id="RKS-Gw-JkX"/>
                         <outlet property="creatorsTable" destination="IC3-oh-9r0" id="5jP-kv-Vl1"/>
                         <outlet property="dateLabel" destination="pFA-U4-Q2h" id="HMi-DN-xPl"/>
                         <outlet property="resumeTextView" destination="5py-Ff-eKm" id="WRY-on-tE5"/>
+                        <segue destination="yKU-T0-KRD" kind="show" identifier="toImage" id="tle-Nn-3BQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjx-dh-a5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2072,7 +2076,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cdO-Ak-l5J"/>
-        <segue reference="wjZ-08-ur2"/>
+        <segue reference="tle-Nn-3BQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>

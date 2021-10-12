@@ -22,10 +22,10 @@ struct BasicComic {
 }
 
 struct BasicEvent {
-    let id: String
+    let id: Int
     let title: String
     let resume: String
-    let cover: UIImage
+    let cover: ImageFormat
     let dates: String
     let comicsIds: [String]
     let creators: [String]

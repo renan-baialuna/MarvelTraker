@@ -13,13 +13,15 @@ import typealias CommonCrypto.CC_LONG
 enum EndpointTypes {
     case caracter
     case comic
-    case image
+    case event
 }
 
 enum ImageSizes: String {
     case portrait_medium = "portrait_medium"
     case portrait_xlarge = "portrait_xlarge"
     case portrait_incredible = "portrait_incredible"
+    case standard_large = "standard_large"
+    case standard_xlarge = "standard_xlarge"
 }
 
 
@@ -52,11 +54,11 @@ class OTMClient {
             urlString = "\(baseUrl)comics?titleStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         case .caracter:
             urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
-        case .image:
-            urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
+        case .event:
+            urlString = "\(baseUrl)events?nameStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         }
         
-        
+        print(urlString)
         return URL(string: urlString)
     }
     
@@ -85,6 +87,37 @@ class OTMClient {
                           pages: base.pageCount,
                           value: base.prices[0].price,
                           series: base.series.name)
+    }
+    
+    public func translateAPI(base: ResultEvent) -> BasicEvent {
+        var creators: [String] = []
+        for i in base.creators.items {
+            creators.append(i.name)
+        }
+        
+        var comicsId: [String] = []
+        for i in base.comics.items {
+            comicsId.append(i.name)
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        let dateStart: Date = dateFormatter.date(from: base.start)!
+        let dateEnd: Date = dateFormatter.date(from: base.end)!
+        let dates: String = "\(dateStart.getDateString())-\(dateStart.getDateString())"
+        
+        
+        
+        
+        let ret = BasicEvent(id: base.id,
+                   title: base.title,
+                   resume: base.description,
+                   cover: base.thumbnail,
+                   dates: dates,
+                   comicsIds: comicsId,
+                   creators: creators)
+        return ret
     }
     
     

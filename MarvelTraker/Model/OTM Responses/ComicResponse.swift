@@ -68,16 +68,3 @@ struct SeriesFormat: Codable {
     let name: String
 }
 
-//
-//struct BasicComic {
-//    let id: String
-//    let title: String
-//    let resume: String
-//    let cover: UIImage
-//    let launchDate: Date
-//    let creators: [String]
-//    let link: String
-//    let pages: Int
-//    let value: Float
-//    let series: String
-//}
