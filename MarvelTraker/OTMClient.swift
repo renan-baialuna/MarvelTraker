@@ -53,7 +53,7 @@ class OTMClient {
         case .comic:
             urlString = "\(baseUrl)comics?titleStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         case .caracter:
-            urlString = "\(baseUrl)characters?ts=thesoer&name=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
+            urlString = "\(baseUrl)characters?ts=thesoer&nameStartsWith=\(target)&orderBy=name&apikey=\(Auth.publicKey)&hash=\(hash)"
         case .event:
             urlString = "\(baseUrl)events?nameStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         }
@@ -120,6 +120,20 @@ class OTMClient {
         return ret
     }
     
+    
+    public func translateAPI(base: ResultCaracter) -> BasicCharacter {
+        var comics: [String] = []
+        for i in base.comics.items {
+            comics.append(i.name)
+        }
+        
+        return BasicCharacter(id: base.id,
+                                 name: base.name,
+                                 image: base.thumbnail,
+                                 resume: base.resultDescription ?? "",
+                                 comics: comics,
+                                 link: base.resourceURI)
+    }
     
     @discardableResult class func taskForGetRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping(ResponseType?, Error?) -> Void) -> URLSessionTask {
         

@@ -15,7 +15,7 @@
 		8065528A26CCA13D006E7F38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8065528926CCA13D006E7F38 /* Assets.xcassets */; };
 		8065528D26CCA13D006E7F38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8065528B26CCA13D006E7F38 /* LaunchScreen.storyboard */; };
 		8065529526CCA156006E7F38 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529426CCA156006E7F38 /* OTMClient.swift */; };
-		8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529726CF1A56006E7F38 /* apiStruct.swift */; };
+		8065529826CF1A56006E7F38 /* ApiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065529726CF1A56006E7F38 /* ApiStruct.swift */; };
 		80662CE526EEEF7D002985E5 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE426EEEF7D002985E5 /* IconButton.swift */; };
 		80662CE826EEF258002985E5 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE726EEF258002985E5 /* Extension+UIColor.swift */; };
 		80662CEA26EEF283002985E5 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80662CE926EEF283002985E5 /* Extension+UIImage.swift */; };
@@ -34,6 +34,7 @@
 		806FF6F4270CE5C50060F513 /* SearchTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */; };
 		806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F7270E34A30060F513 /* ComicResponse.swift */; };
 		807771E02713C6D00086DE66 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771DF2713C6D00086DE66 /* EventResponse.swift */; };
+		807771E227164E8D0086DE66 /* CaracterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771E127164E8D0086DE66 /* CaracterResponse.swift */; };
 		8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081967226FC128B0014B1BE /* ContinueButton.swift */; };
 		809B106526F382EF00CAF7AD /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */; };
 		80AD4D9527033440000D2146 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */; };
@@ -60,7 +61,7 @@
 		8065528C26CCA13D006E7F38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8065528E26CCA13D006E7F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8065529426CCA156006E7F38 /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
-		8065529726CF1A56006E7F38 /* apiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiStruct.swift; sourceTree = "<group>"; };
+		8065529726CF1A56006E7F38 /* ApiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiStruct.swift; sourceTree = "<group>"; };
 		80662CE426EEEF7D002985E5 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		80662CE726EEF258002985E5 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		80662CE926EEF283002985E5 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarController.swift; sourceTree = "<group>"; };
 		806FF6F7270E34A30060F513 /* ComicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResponse.swift; sourceTree = "<group>"; };
 		807771DF2713C6D00086DE66 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		807771E127164E8D0086DE66 /* CaracterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaracterResponse.swift; sourceTree = "<group>"; };
 		8081967226FC128B0014B1BE /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,22 +147,15 @@
 		8065529626CF1A29006E7F38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8065528126CCA139006E7F38 /* SearchViewController.swift */,
-				80662CEE26F0303C002985E5 /* NewComicViewController.swift */,
-				809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */,
-				80AD4D9627039CE3000D2146 /* NewEventViewController.swift */,
-				80AD4D9A2703B4F7000D2146 /* EventDetailViewController.swift */,
-				80AD4D9C2704A52E000D2146 /* NewCaracterViewController.swift */,
-				80AD4DA0270554F7000D2146 /* CaracterDetailViewController.swift */,
-				80AD4DA227065703000D2146 /* WebViewScreenViewController.swift */,
-				80DA742527077FD70057CB71 /* ComicAquisitionViewController.swift */,
+				807771E32716502E0086DE66 /* Comic */,
+				807771E42716508B0086DE66 /* Event */,
+				807771E5271650940086DE66 /* Caracter */,
+				807771E6271650D10086DE66 /* Universal */,
 				80DA7427270945760057CB71 /* InventoryListViewController.swift */,
 				806FF6E1270B41F20060F513 /* WishDetailViewController.swift */,
 				806FF6E5270B79FF0060F513 /* ComicMoreDetailsViewController.swift */,
 				806FF6E7270B840E0060F513 /* InventoryDetailViewController.swift */,
 				806FF6E9270C71940060F513 /* WhislistCollectionViewController.swift */,
-				806FF6ED270C96B60060F513 /* ImageDetailViewController.swift */,
-				806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,7 +197,7 @@
 		80662CF026F03950002985E5 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				8065529726CF1A56006E7F38 /* apiStruct.swift */,
+				8065529726CF1A56006E7F38 /* ApiStruct.swift */,
 				80662CF126F0396C002985E5 /* BasicStructs.swift */,
 			);
 			path = Structs;
@@ -221,8 +216,48 @@
 			children = (
 				806FF6F7270E34A30060F513 /* ComicResponse.swift */,
 				807771DF2713C6D00086DE66 /* EventResponse.swift */,
+				807771E127164E8D0086DE66 /* CaracterResponse.swift */,
 			);
 			path = "OTM Responses";
+			sourceTree = "<group>";
+		};
+		807771E32716502E0086DE66 /* Comic */ = {
+			isa = PBXGroup;
+			children = (
+				80662CEE26F0303C002985E5 /* NewComicViewController.swift */,
+				809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */,
+			);
+			path = Comic;
+			sourceTree = "<group>";
+		};
+		807771E42716508B0086DE66 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				80AD4D9627039CE3000D2146 /* NewEventViewController.swift */,
+				80AD4D9A2703B4F7000D2146 /* EventDetailViewController.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		807771E5271650940086DE66 /* Caracter */ = {
+			isa = PBXGroup;
+			children = (
+				80AD4D9C2704A52E000D2146 /* NewCaracterViewController.swift */,
+				80AD4DA0270554F7000D2146 /* CaracterDetailViewController.swift */,
+			);
+			path = Caracter;
+			sourceTree = "<group>";
+		};
+		807771E6271650D10086DE66 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				8065528126CCA139006E7F38 /* SearchViewController.swift */,
+				80AD4DA227065703000D2146 /* WebViewScreenViewController.swift */,
+				80DA742527077FD70057CB71 /* ComicAquisitionViewController.swift */,
+				806FF6ED270C96B60060F513 /* ImageDetailViewController.swift */,
+				806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */,
+			);
+			path = Universal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +336,7 @@
 				8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */,
 				80AD4D9727039CE3000D2146 /* NewEventViewController.swift in Sources */,
 				806FF6F0270CB78A0060F513 /* Extension+Float.swift in Sources */,
-				8065529826CF1A56006E7F38 /* apiStruct.swift in Sources */,
+				8065529826CF1A56006E7F38 /* ApiStruct.swift in Sources */,
 				80662CF226F0396C002985E5 /* BasicStructs.swift in Sources */,
 				806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */,
 				80662CE526EEEF7D002985E5 /* IconButton.swift in Sources */,
@@ -310,6 +345,7 @@
 				809B106526F382EF00CAF7AD /* ComicDetailViewController.swift in Sources */,
 				806FF6E2270B41F20060F513 /* WishDetailViewController.swift in Sources */,
 				80662CEF26F0303C002985E5 /* NewComicViewController.swift in Sources */,
+				807771E227164E8D0086DE66 /* CaracterResponse.swift in Sources */,
 				806FF6E4270B782E0060F513 /* Extension+Date.swift in Sources */,
 				8065528826CCA139006E7F38 /* MarvelTraker.xcdatamodeld in Sources */,
 				806FF6EE270C96B60060F513 /* ImageDetailViewController.swift in Sources */,

@@ -7,13 +7,6 @@
 
 import UIKit
 
-//class mocks {
-//    public func mockComics() -> [BasicComic] {
-//        let mock: [BasicComic] = [BasicComic(id: "1", title: "Primeiro", resume: "resumo", cover: UIImage.internalAddIcon, launchDate: Date(), creators: ["first creator", "seccond creator"], link: "www.google.com", pages: 200, value: 12.50, series: "the spetacular")]
-//        return mock
-//    }
-//}
-
 
 class UnitComic {
     var base: BasicComic

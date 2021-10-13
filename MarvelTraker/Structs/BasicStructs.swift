@@ -32,11 +32,10 @@ struct BasicEvent {
 }
 
 struct BasicCharacter {
-    let id: String
+    let id: Int
     let name: String
-    let image: UIImage
+    let image: ImageFormat
     let resume: String
-    let creationDate: Date
     let comics: [String]
     let link: String
     

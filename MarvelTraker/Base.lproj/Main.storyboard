@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="30h-dY-5Kx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3NM-3j-pLa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -565,13 +565,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IGK-rO-EHd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="347"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="stp-Ay-buk">
-                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="347"/>
-                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuz-Dk-CrS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="387"/>
+                                                                <connections>
+                                                                    <action selector="toImage" destination="2H9-KZ-2Md" eventType="touchUpInside" id="kiu-1h-KEy"/>
+                                                                </connections>
+                                                            </button>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-Wa-pSL">
-                                                                <rect key="frame" x="207" y="0.0" width="207" height="347"/>
+                                                                <rect key="frame" x="207" y="0.0" width="207" height="387"/>
                                                                 <color key="backgroundColor" name="Secondary"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                 <color key="textColor" name="Detail"/>
@@ -580,18 +583,9 @@
                                                             </textView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5D-oY-HfY">
-                                                        <rect key="frame" x="0.0" y="355" width="414" height="32"/>
-                                                        <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
-                                                        <color key="textColor" name="Selection"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="IGK-rO-EHd" secondAttribute="trailing" id="Ecn-Pa-Vel"/>
-                                                    <constraint firstAttribute="trailing" secondItem="u5D-oY-HfY" secondAttribute="trailing" id="ML7-3f-HRB"/>
-                                                    <constraint firstItem="u5D-oY-HfY" firstAttribute="leading" secondItem="c0X-dX-zz1" secondAttribute="leading" id="Nwk-Ty-8aF"/>
-                                                    <constraint firstAttribute="bottom" secondItem="u5D-oY-HfY" secondAttribute="bottom" id="XcF-iC-ZZZ"/>
                                                     <constraint firstItem="IGK-rO-EHd" firstAttribute="leading" secondItem="c0X-dX-zz1" secondAttribute="leading" id="bti-mq-E74"/>
                                                     <constraint firstItem="IGK-rO-EHd" firstAttribute="top" secondItem="c0X-dX-zz1" secondAttribute="top" id="pck-G9-aqn"/>
                                                 </constraints>
@@ -611,7 +605,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="CwL-4J-z7R">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crr-SV-KMp">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crr-SV-KMp">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Fff-Uh-wJl"/>
@@ -735,16 +729,16 @@
                     <navigationItem key="navigationItem" id="qdG-AL-2ql"/>
                     <connections>
                         <outlet property="caracterBioTextView" destination="cxB-Wa-pSL" id="KJg-mW-1Mt"/>
-                        <outlet property="caracterImageView" destination="stp-Ay-buk" id="QQu-UY-Dyi"/>
-                        <outlet property="creatorsTable" destination="XKZ-jk-Ne6" id="Z4S-1u-1ON"/>
-                        <outlet property="dateLabel" destination="u5D-oY-HfY" id="4AX-qu-PvC"/>
+                        <outlet property="caracterImageButton" destination="Wuz-Dk-CrS" id="uUw-oW-YlX"/>
+                        <outlet property="comicsTable" destination="XKZ-jk-Ne6" id="Z4S-1u-1ON"/>
                         <outlet property="linkButton" destination="goo-nh-saJ" id="LS5-Kg-6Ga"/>
                         <segue destination="6bl-So-kLS" kind="show" identifier="toWebview" id="vj3-Bn-ClG"/>
+                        <segue destination="yKU-T0-KRD" kind="show" identifier="toImage" id="jj1-ZY-Hsw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJd-zd-gr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4269.5652173913049" y="1082.8125"/>
+            <point key="canvasLocation" x="4270" y="1083"/>
         </scene>
         <!--Web View Screen View Controller-->
         <scene sceneID="Hz8-c0-Exk">
@@ -1524,7 +1518,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TEk-Vt-7VG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="Background"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SlQ-n0-5Ib">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SlQ-n0-5Ib">
                                     <size key="itemSize" width="221" height="353"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -2076,7 +2070,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cdO-Ak-l5J"/>
-        <segue reference="tle-Nn-3BQ"/>
+        <segue reference="jj1-ZY-Hsw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>
