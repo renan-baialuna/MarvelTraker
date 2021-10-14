@@ -19,6 +19,7 @@ class UnitCaracter {
 
 class NewCaracterViewController: UIViewController {
     @IBOutlet weak var caracterCollection: UICollectionView!
+    @IBOutlet weak var warningView: UIView!
     
     var client: OTMClient = OTMClient()
     var selectedIndex: Int = 0
@@ -28,7 +29,7 @@ class NewCaracterViewController: UIViewController {
         super.viewDidLoad()
         caracterCollection.delegate = self
         caracterCollection.dataSource = self
-
+        warningView.isHidden = true
         getCaracter(name: target)
     }
     
@@ -38,10 +39,14 @@ class NewCaracterViewController: UIViewController {
             OTMClient.taskForGetRequest(url: url,  responseType: CaracterResponse.self) { [self] (response, error) in
                 if error == nil {
                     if let results = response?.data.results {
-                        for i in results {
-                            var newCaracter = UnitCaracter(base: client.translateAPI(base: i), image: .internalEventPlaceholder)
-                            caracters.append(newCaracter)
-                            getImage(caracter: newCaracter)
+                        if results.isEmpty {
+                            warningView.isHidden = false
+                        } else {
+                            for i in results {
+                                var newCaracter = UnitCaracter(base: client.translateAPI(base: i), image: .internalEventPlaceholder)
+                                caracters.append(newCaracter)
+                                getImage(caracter: newCaracter)
+                            }
                         }
                     }
                     caracterCollection.reloadData()

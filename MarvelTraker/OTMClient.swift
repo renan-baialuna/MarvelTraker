@@ -60,7 +60,6 @@ class OTMClient {
             urlString = "\(baseUrl)events?nameStartsWith=\(target)&ts=thesoer&apikey=\(Auth.publicKey)&hash=\(hash)"
         }
         
-        print(urlString)
         return URL(string: urlString)
     }
     

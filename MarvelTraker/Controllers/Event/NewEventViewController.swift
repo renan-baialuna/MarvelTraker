@@ -23,6 +23,7 @@ class NewEventViewController: UIViewController {
     var events: [UnitEvent] = []
 
     @IBOutlet weak var eventTable: UITableView!
+    @IBOutlet weak var warningView: UIView!
     var selectedEvent: Int = 0
     var target: String!
     var client: OTMClient = OTMClient()
@@ -31,7 +32,7 @@ class NewEventViewController: UIViewController {
         eventTable.dataSource = self
         eventTable.delegate = self
         getEvents(name: target)
-
+        warningView.isHidden = true
         // Do any additional setup after loading the view.
     }
     
@@ -41,11 +42,16 @@ class NewEventViewController: UIViewController {
             OTMClient.taskForGetRequest(url: url,  responseType: EventResponse.self) { [self] (response, error) in
                 if error == nil {
                     if let results = response?.data.results {
-                        for i in results {
-                            var newEvent = UnitEvent(base: client.translateAPI(base: i), image: .internalEventPlaceholder)
-                            events.append(newEvent)
-                            getImage(event: newEvent)
+                        if results.isEmpty {
+                            warningView.isHidden = false
+                        } else {
+                            for i in results {
+                                var newEvent = UnitEvent(base: client.translateAPI(base: i), image: .internalEventPlaceholder)
+                                events.append(newEvent)
+                                getImage(event: newEvent)
+                            }
                         }
+
                     }
                     eventTable.reloadData()
                 } else {

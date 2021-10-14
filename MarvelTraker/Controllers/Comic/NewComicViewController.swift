@@ -22,6 +22,7 @@ class UnitComic {
 class NewComicViewController: UIViewController {
     
     @IBOutlet weak var comicCollection: UICollectionView!
+    @IBOutlet weak var warningView: UIView!
     
     var comics: [UnitComic] = []
     var selectedComic: Int = 0
@@ -30,7 +31,7 @@ class NewComicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        warningView.isHidden = true
         comicCollection.delegate = self
         comicCollection.dataSource = self
         getCaracter(name: target)
@@ -43,15 +44,19 @@ class NewComicViewController: UIViewController {
             OTMClient.taskForGetRequest(url: url,  responseType: ComicResponse.self) { [self] (response, error) in
                 if error == nil {
                     if let results = response?.data.results {
-                        for i in results {
-                            var newComic = UnitComic(base: client.translateAPI(base: i), image: .internalComicPlaceholder)
-                            comics.append(newComic)
-                            if i.images.count > 0 {
-                                
-                                
-                                getImage(comic: newComic)
+                        if results.isEmpty {
+                            warningView.isHidden = false
+                        } else {
+                            for i in results {
+                                var newComic = UnitComic(base: client.translateAPI(base: i), image: .internalComicPlaceholder)
+                                comics.append(newComic)
+                                if i.images.count > 0 {
+                                    
+                                    
+                                    getImage(comic: newComic)
+                                }
+                                comicCollection.reloadData()
                             }
-                            comicCollection.reloadData()
                         }
                     }
                 } else {

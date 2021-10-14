@@ -210,19 +210,70 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-R3-AcL">
+                                <rect key="frame" x="87" y="388" width="240" height="120"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRU-sZ-IF6">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Comic Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLc-hn-Q9S">
+                                                <rect key="frame" x="0.0" y="35" width="240" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="HLe-ge-SVZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="25"/>
+                                                <color key="textColor" name="Selection"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Detail"/>
+                                        <constraints>
+                                            <constraint firstItem="YLc-hn-Q9S" firstAttribute="centerX" secondItem="bRU-sZ-IF6" secondAttribute="centerX" id="BW4-lm-4tq"/>
+                                            <constraint firstAttribute="height" constant="120" id="EVz-Dh-KwD"/>
+                                            <constraint firstItem="YLc-hn-Q9S" firstAttribute="leading" secondItem="bRU-sZ-IF6" secondAttribute="leading" id="GGq-ob-pz6"/>
+                                            <constraint firstItem="YLc-hn-Q9S" firstAttribute="centerY" secondItem="bRU-sZ-IF6" secondAttribute="centerY" id="Sdn-So-olu"/>
+                                            <constraint firstAttribute="trailing" secondItem="YLc-hn-Q9S" secondAttribute="trailing" id="mDJ-lA-qI7"/>
+                                            <constraint firstAttribute="width" constant="240" id="zvN-s8-l98"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Comic Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xP4-5Z-OH8">
+                                        <rect key="frame" x="0.0" y="35" width="240" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iX6-nQ-l5v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="25"/>
+                                        <color key="textColor" name="Selection"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="7jb-pD-BU5"/>
+                                    <constraint firstItem="xP4-5Z-OH8" firstAttribute="leading" secondItem="1Rj-R3-AcL" secondAttribute="leading" id="PKx-7L-2Nh"/>
+                                    <constraint firstItem="xP4-5Z-OH8" firstAttribute="centerY" secondItem="1Rj-R3-AcL" secondAttribute="centerY" id="R4k-bg-SCq"/>
+                                    <constraint firstItem="bRU-sZ-IF6" firstAttribute="leading" secondItem="xP4-5Z-OH8" secondAttribute="leading" id="Zk1-eh-puF"/>
+                                    <constraint firstItem="xP4-5Z-OH8" firstAttribute="centerX" secondItem="1Rj-R3-AcL" secondAttribute="centerX" id="glM-Ky-Ba2"/>
+                                    <constraint firstAttribute="trailing" secondItem="xP4-5Z-OH8" secondAttribute="trailing" id="gqj-GW-b4r"/>
+                                    <constraint firstItem="bRU-sZ-IF6" firstAttribute="centerY" secondItem="xP4-5Z-OH8" secondAttribute="centerY" id="t9y-6W-FDD"/>
+                                    <constraint firstAttribute="width" constant="240" id="vWk-SQ-4sw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="awh-Jf-SJ1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="awh-Jf-SJ1" firstAttribute="bottom" secondItem="bQ9-f8-jCc" secondAttribute="bottom" id="HWm-CL-gss"/>
                             <constraint firstItem="bQ9-f8-jCc" firstAttribute="leading" secondItem="awh-Jf-SJ1" secondAttribute="leading" id="RVp-03-IvH"/>
+                            <constraint firstItem="1Rj-R3-AcL" firstAttribute="centerX" secondItem="ADb-yO-2yl" secondAttribute="centerX" id="Rfw-Do-0Y8"/>
                             <constraint firstItem="bQ9-f8-jCc" firstAttribute="top" secondItem="awh-Jf-SJ1" secondAttribute="top" id="WZv-hl-wey"/>
+                            <constraint firstItem="1Rj-R3-AcL" firstAttribute="centerY" secondItem="ADb-yO-2yl" secondAttribute="centerY" id="ZUh-8K-hEE"/>
                             <constraint firstItem="awh-Jf-SJ1" firstAttribute="trailing" secondItem="bQ9-f8-jCc" secondAttribute="trailing" id="weh-gn-C7o"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comic" image="comicEmpty" selectedImage="comicFull" id="TRx-JE-6Tv"/>
                     <connections>
                         <outlet property="comicCollection" destination="bQ9-f8-jCc" id="Jk9-zr-a5K"/>
+                        <outlet property="warningView" destination="1Rj-R3-AcL" id="lEg-z8-9lx"/>
                         <segue destination="3GO-Rc-JYl" kind="show" identifier="toComicDetails" id="ecL-fw-3G6"/>
                     </connections>
                 </viewController>
@@ -1577,6 +1628,31 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOC-oQ-sQV">
+                                <rect key="frame" x="77" y="388" width="260" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Character Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu2-Hk-yvp">
+                                        <rect key="frame" x="10.5" y="35" width="239" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="R4H-K3-zG7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="25"/>
+                                        <color key="textColor" name="Selection"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Detail"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="30b-g0-dSC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="4of-ra-Xyw"/>
+                                    <constraint firstItem="Zu2-Hk-yvp" firstAttribute="centerY" secondItem="NOC-oQ-sQV" secondAttribute="centerY" id="CCI-Ax-pl7"/>
+                                    <constraint firstItem="Zu2-Hk-yvp" firstAttribute="centerX" secondItem="NOC-oQ-sQV" secondAttribute="centerX" id="Ohx-ol-k3F"/>
+                                    <constraint firstItem="Zu2-Hk-yvp" firstAttribute="centerY" secondItem="NOC-oQ-sQV" secondAttribute="centerY" id="RJI-q6-ojF"/>
+                                    <constraint firstAttribute="height" constant="120" id="b4L-ca-bd7"/>
+                                    <constraint firstItem="Zu2-Hk-yvp" firstAttribute="centerX" secondItem="NOC-oQ-sQV" secondAttribute="centerX" id="bgZ-Me-9Tk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="kTD-4d-X4o"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D3j-WC-3jG"/>
                         <color key="backgroundColor" name="Background"/>
@@ -1585,11 +1661,14 @@
                             <constraint firstItem="D3j-WC-3jG" firstAttribute="bottom" secondItem="TEk-Vt-7VG" secondAttribute="bottom" id="7he-2B-jTm"/>
                             <constraint firstItem="TEk-Vt-7VG" firstAttribute="trailing" secondItem="D3j-WC-3jG" secondAttribute="trailing" id="RPE-x8-NJu"/>
                             <constraint firstItem="TEk-Vt-7VG" firstAttribute="leading" secondItem="D3j-WC-3jG" secondAttribute="leading" id="VSr-tj-niq"/>
+                            <constraint firstItem="NOC-oQ-sQV" firstAttribute="centerY" secondItem="TlZ-Hz-YZ2" secondAttribute="centerY" id="Wnh-9x-kYw"/>
+                            <constraint firstItem="NOC-oQ-sQV" firstAttribute="centerX" secondItem="TlZ-Hz-YZ2" secondAttribute="centerX" id="jAr-OB-ZsW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Caracter" image="caracterEmpty" selectedImage="CaracterFull" id="k7Q-QP-qkE"/>
                     <connections>
                         <outlet property="caracterCollection" destination="TEk-Vt-7VG" id="nPh-m4-tAx"/>
+                        <outlet property="warningView" destination="NOC-oQ-sQV" id="fJB-oz-GHv"/>
                         <segue destination="2H9-KZ-2Md" kind="show" identifier="toCaracter" id="onA-K5-VAe"/>
                     </connections>
                 </viewController>
@@ -1725,6 +1804,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIS-Fz-2EY">
+                                <rect key="frame" x="87" y="388" width="240" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Event Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw9-I0-zk4">
+                                        <rect key="frame" x="27.5" y="35" width="185" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2pi-Ij-aKd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="25"/>
+                                        <color key="textColor" name="Selection"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Detail"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="7Ly-Yr-HEg"/>
+                                    <constraint firstItem="yw9-I0-zk4" firstAttribute="centerX" secondItem="OIS-Fz-2EY" secondAttribute="centerX" id="Pzh-E2-bqZ"/>
+                                    <constraint firstAttribute="height" constant="120" id="VnM-CL-Iae"/>
+                                    <constraint firstItem="yw9-I0-zk4" firstAttribute="centerY" secondItem="OIS-Fz-2EY" secondAttribute="centerY" id="j4s-zp-27h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dhc-Eg-kZ5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1732,12 +1832,15 @@
                             <constraint firstItem="NJl-nn-0sD" firstAttribute="top" secondItem="Dhc-Eg-kZ5" secondAttribute="top" id="4gd-3k-5iU"/>
                             <constraint firstItem="NJl-nn-0sD" firstAttribute="bottom" secondItem="Dhc-Eg-kZ5" secondAttribute="bottom" id="AFm-0B-ks4"/>
                             <constraint firstItem="NJl-nn-0sD" firstAttribute="trailing" secondItem="Dhc-Eg-kZ5" secondAttribute="trailing" id="NRe-MC-sYm"/>
+                            <constraint firstItem="OIS-Fz-2EY" firstAttribute="centerY" secondItem="BgY-zx-jkb" secondAttribute="centerY" id="UEO-Mt-Oph"/>
+                            <constraint firstItem="OIS-Fz-2EY" firstAttribute="centerX" secondItem="BgY-zx-jkb" secondAttribute="centerX" id="X98-c4-uUt"/>
                             <constraint firstItem="NJl-nn-0sD" firstAttribute="leading" secondItem="Dhc-Eg-kZ5" secondAttribute="leading" id="xmp-LK-x6F"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Event" image="eventEmpty" selectedImage="eventFull" id="ls2-M5-7EO"/>
                     <connections>
                         <outlet property="eventTable" destination="NJl-nn-0sD" id="JFu-Lo-1A0"/>
+                        <outlet property="warningView" destination="OIS-Fz-2EY" id="jVV-Dk-OSc"/>
                         <segue destination="Joh-v0-dKh" kind="show" identifier="toEventDetail" id="Nci-dX-8fA"/>
                     </connections>
                 </viewController>
