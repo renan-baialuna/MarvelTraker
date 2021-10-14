@@ -24,7 +24,7 @@ class NewEventViewController: UIViewController {
 
     @IBOutlet weak var eventTable: UITableView!
     var selectedEvent: Int = 0
-    var target: String = "Age"
+    var target: String!
     var client: OTMClient = OTMClient()
     override func viewDidLoad() {
         super.viewDidLoad()

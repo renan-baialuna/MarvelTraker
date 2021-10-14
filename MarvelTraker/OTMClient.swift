@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
@@ -22,6 +23,7 @@ enum ImageSizes: String {
     case portrait_incredible = "portrait_incredible"
     case standard_large = "standard_large"
     case standard_xlarge = "standard_xlarge"
+    case standard_amazing = "standard_amazing"
 }
 
 
@@ -77,10 +79,15 @@ class OTMClient {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let newDate = dateFormatter.date(from: base.dates[0].date)!
         
+        var image: ImageFormat? = nil
+        if base.images.count > 0 {
+            image = base.images[0]
+        }
+        
         return BasicComic(id: base.id,
                           title: base.title,
                           resume: base.description ?? "no resume given",
-                          cover: base.images[0],
+                          cover: image,
                           launchDate: newDate,
                           creators: creators,
                           link: base.resourceURI,

@@ -25,7 +25,7 @@ class NewComicViewController: UIViewController {
     
     var comics: [UnitComic] = []
     var selectedComic: Int = 0
-    var target: String = "incredible"
+    var target: String!
     var client: OTMClient = OTMClient()
     
     override func viewDidLoad() {
@@ -63,22 +63,24 @@ class NewComicViewController: UIViewController {
     
     func getImage(comic: UnitComic) {
         let session = URLSession(configuration: .default)
-        if let url = client.getEndpoint(data: comic.base.cover, size: .portrait_medium) {
-            let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-                
-                if error != nil {
-                }
-                if let safeData = data {
-                    if let downloadedImage = UIImage(data: safeData) {
-                        DispatchQueue.main.async { [self] in
-                            comic.image = downloadedImage
-                            comicCollection.reloadData()
+        if let image = comic.base.cover {
+            if let url = client.getEndpoint(data: image, size: .portrait_incredible) {
+                let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                    
+                    if error != nil {
+                    }
+                    if let safeData = data {
+                        if let downloadedImage = UIImage(data: safeData) {
+                            DispatchQueue.main.async { [self] in
+                                comic.image = downloadedImage
+                                comicCollection.reloadData()
+                            }
+                            
                         }
-                        
                     }
                 }
+                task.resume()
             }
-            task.resume()
         }
     }
 }

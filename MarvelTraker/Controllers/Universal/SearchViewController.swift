@@ -18,9 +18,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButton()
-        
+        setupbackground()
         self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
         self.inventoryListButton.configure(image: .internalCollectionIcon, title: "My Comics")
+        self.searchTextField.delegate = self
     }
     
     func setupButton() {
@@ -29,6 +30,14 @@ class SearchViewController: UIViewController {
         searchButton.layer.borderColor = UIColor.detail.cgColor
     }
     
+    func setupbackground() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+       view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     @IBAction func startSearch() {
         performSegue(withIdentifier: "toResults", sender: nil)
@@ -51,5 +60,12 @@ class SearchViewController: UIViewController {
     }
  
 
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() 
+        return true
+    }
 }
 

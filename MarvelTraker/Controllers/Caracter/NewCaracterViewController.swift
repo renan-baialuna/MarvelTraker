@@ -23,7 +23,7 @@ class NewCaracterViewController: UIViewController {
     var client: OTMClient = OTMClient()
     var selectedIndex: Int = 0
     var caracters: [UnitCaracter] = []
-    var target: String = "Spider"
+    var target: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         caracterCollection.delegate = self
@@ -54,7 +54,7 @@ class NewCaracterViewController: UIViewController {
     
     func getImage(caracter: UnitCaracter) {
         let session = URLSession(configuration: .default)
-        if let url = client.getEndpoint(data: caracter.base.image, size: .portrait_medium) {
+        if let url = client.getEndpoint(data: caracter.base.image, size: .portrait_incredible) {
             let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
                 
                 if error != nil {

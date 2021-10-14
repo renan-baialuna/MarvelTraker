@@ -153,7 +153,6 @@
 				807771E6271650D10086DE66 /* Universal */,
 				80DA7427270945760057CB71 /* InventoryListViewController.swift */,
 				806FF6E1270B41F20060F513 /* WishDetailViewController.swift */,
-				806FF6E5270B79FF0060F513 /* ComicMoreDetailsViewController.swift */,
 				806FF6E7270B840E0060F513 /* InventoryDetailViewController.swift */,
 				806FF6E9270C71940060F513 /* WhislistCollectionViewController.swift */,
 			);
@@ -226,6 +225,7 @@
 			children = (
 				80662CEE26F0303C002985E5 /* NewComicViewController.swift */,
 				809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */,
+				806FF6E5270B79FF0060F513 /* ComicMoreDetailsViewController.swift */,
 			);
 			path = Comic;
 			sourceTree = "<group>";

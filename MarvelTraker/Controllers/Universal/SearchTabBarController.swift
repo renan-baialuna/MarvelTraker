@@ -17,7 +17,6 @@ class SearchTabBarController: UITabBarController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         let vcEvent = self.viewControllers![1] as! NewEventViewController
         let vcComic = self.viewControllers![0] as! NewCaracterViewController
         let vcCaracter = self.viewControllers![2] as! NewComicViewController
@@ -25,6 +24,8 @@ class SearchTabBarController: UITabBarController {
         vcEvent.target = target
         vcComic.target = target
         vcCaracter.target = target
+        super.viewWillAppear(animated)
+
     }
     
     

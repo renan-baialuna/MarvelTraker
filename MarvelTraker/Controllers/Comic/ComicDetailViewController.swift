@@ -18,6 +18,7 @@ class ComicDetailViewController: UIViewController {
     @IBOutlet weak var whishButton: ContinueButton!
     @IBOutlet weak var aquisitonButton: ContinueButton!
     var client: OTMClient = OTMClient()
+    var image: ImageFormat? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,6 @@ class ComicDetailViewController: UIViewController {
         whishButton.setup(text: "I Want this")
         aquisitonButton.setup(text: "A Have Aquired This!", true)
         setupImage()
-        
         titleLabel.text = comic.title
         
         
@@ -40,21 +40,24 @@ class ComicDetailViewController: UIViewController {
     }
     
     func setupImage() {
+        image = comic.cover
         let session = URLSession(configuration: .default)
-        if let url = client.getEndpoint(data: comic.cover, size: .portrait_medium) {
-            let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-                
-                if error != nil {
-                }
-                if let safeData = data {
-                    if let downloadedImage = UIImage(data: safeData) {
-                        DispatchQueue.main.async { [self] in
-                            comicImageButton.setImage(downloadedImage, for: .normal)
+        if let image = image {
+            if let url = client.getEndpoint(data: image, size: .portrait_medium) {
+                let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                    
+                    if error != nil {
+                    }
+                    if let safeData = data {
+                        if let downloadedImage = UIImage(data: safeData) {
+                            DispatchQueue.main.async { [self] in
+                                comicImageButton.setImage(downloadedImage, for: .normal)
+                            }
                         }
                     }
                 }
+                task.resume()
             }
-            task.resume()
         }
     }
 
@@ -75,17 +78,24 @@ class ComicDetailViewController: UIViewController {
     }
     
     @IBAction func openImage() {
-        performSegue(withIdentifier: "toImage", sender: nil)
+        if image != nil {
+            performSegue(withIdentifier: "toImage", sender: nil)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toImage" {
-            var vc = segue.destination as!  ImageDetailViewController
-//            vc.image = comic.cover
-            vc.newImage = comic.cover
+        if let image = image {
+            if segue.identifier == "toImage" {
+                var vc = segue.destination as!  ImageDetailViewController
+                vc.newImage = image
+            }
+        }
+        if segue.identifier == "toDetail" {
+            var vc = segue.destination as! ComicMoreDetailsViewController
+            vc.comic = comic
         }
     }
-    
 }
 
 
