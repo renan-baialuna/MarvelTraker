@@ -35,6 +35,7 @@
 		806FF6F8270E34A30060F513 /* ComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FF6F7270E34A30060F513 /* ComicResponse.swift */; };
 		807771E02713C6D00086DE66 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771DF2713C6D00086DE66 /* EventResponse.swift */; };
 		807771E227164E8D0086DE66 /* CaracterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771E127164E8D0086DE66 /* CaracterResponse.swift */; };
+		807771E82718A5CD0086DE66 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807771E72718A5CD0086DE66 /* Extension+UIView.swift */; };
 		8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081967226FC128B0014B1BE /* ContinueButton.swift */; };
 		809B106526F382EF00CAF7AD /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */; };
 		80AD4D9527033440000D2146 /* CreatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */; };
@@ -81,6 +82,7 @@
 		806FF6F7270E34A30060F513 /* ComicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResponse.swift; sourceTree = "<group>"; };
 		807771DF2713C6D00086DE66 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		807771E127164E8D0086DE66 /* CaracterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaracterResponse.swift; sourceTree = "<group>"; };
+		807771E72718A5CD0086DE66 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		8081967226FC128B0014B1BE /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		80AD4D9427033440000D2146 /* CreatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				806FF6E3270B782E0060F513 /* Extension+Date.swift */,
 				806FF6EF270CB7890060F513 /* Extension+Float.swift */,
 				806FF6F1270CB7F20060F513 /* Extension+String.swift */,
+				807771E72718A5CD0086DE66 /* Extension+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				806FF6F4270CE5C50060F513 /* SearchTabBarController.swift in Sources */,
 				806FF6E6270B79FF0060F513 /* ComicMoreDetailsViewController.swift in Sources */,
 				80662CE826EEF258002985E5 /* Extension+UIColor.swift in Sources */,
+				807771E82718A5CD0086DE66 /* Extension+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,8 @@ class NewCaracterViewController: UIViewController {
     var selectedIndex: Int = 0
     var caracters: [UnitCaracter] = []
     var target: String!
+    let alert = UIAlertController(title: "Error", message: "There was an error loading", preferredStyle: UIAlertController.Style.alert)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         caracterCollection.delegate = self
@@ -34,9 +36,11 @@ class NewCaracterViewController: UIViewController {
     }
     
     func getCaracter(name: String) {
+        self.view.activityStartAnimating()
         let hash = OTMClient().createHash()
         if let url = OTMClient().getEndpoint(type: .caracter, target: name) {
             OTMClient.taskForGetRequest(url: url,  responseType: CaracterResponse.self) { [self] (response, error) in
+                self.view.activityStopAnimating()
                 if error == nil {
                     if let results = response?.data.results {
                         if results.isEmpty {
@@ -51,7 +55,7 @@ class NewCaracterViewController: UIViewController {
                     }
                     caracterCollection.reloadData()
                 } else {
-    //
+                    setupAlert()
                 }
             }
         }
@@ -78,7 +82,14 @@ class NewCaracterViewController: UIViewController {
         }
     }
     
-    
+    func setupAlert() {
+        DispatchQueue.main.async {
+            self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                self.navigationController?.popToRootViewController(animated: true)
+            }))
+            self.present(self.alert, animated: true, completion: nil)
+        }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

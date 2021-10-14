@@ -34,7 +34,7 @@ class ComicDetailViewController: UIViewController {
         aquisitonButton.setup(text: "A Have Aquired This!", true)
         setupImage()
         titleLabel.text = comic.title
-        
+        self.title = comic.title
         
         
     }
@@ -43,7 +43,7 @@ class ComicDetailViewController: UIViewController {
         image = comic.cover
         let session = URLSession(configuration: .default)
         if let image = image {
-            if let url = client.getEndpoint(data: image, size: .portrait_medium) {
+            if let url = client.getEndpoint(data: image, size: .portrait_incredible) {
                 let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
                     
                     if error != nil {
@@ -89,6 +89,7 @@ class ComicDetailViewController: UIViewController {
             if segue.identifier == "toImage" {
                 var vc = segue.destination as!  ImageDetailViewController
                 vc.newImage = image
+                vc.title = comic.title
             }
         }
         if segue.identifier == "toDetail" {

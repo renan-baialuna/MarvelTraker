@@ -61,6 +61,7 @@ class EventDetailViewController: UIViewController {
         if segue.identifier == "toImage" {
             let vc = segue.destination as! ImageDetailViewController
             vc.newImage = event.cover
+            vc.title = event.title
         }
     }
     

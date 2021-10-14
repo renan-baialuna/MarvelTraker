@@ -28,6 +28,7 @@ class NewComicViewController: UIViewController {
     var selectedComic: Int = 0
     var target: String!
     var client: OTMClient = OTMClient()
+    let alert = UIAlertController(title: "Error", message: "There was an error loading", preferredStyle: UIAlertController.Style.alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +39,22 @@ class NewComicViewController: UIViewController {
         
     }
     
+    func setupAlert() {
+        DispatchQueue.main.async {
+            self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                self.navigationController?.popToRootViewController(animated: true)
+            }))
+            self.present(self.alert, animated: true, completion: nil)
+        }
+    }
+    
     func getCaracter(name: String) {
+        self.view.activityStartAnimating()
+        
         let hash = OTMClient().createHash()
         if let url = OTMClient().getEndpoint(type: .comic, target: target) {
             OTMClient.taskForGetRequest(url: url,  responseType: ComicResponse.self) { [self] (response, error) in
+                self.view.activityStopAnimating()
                 if error == nil {
                     if let results = response?.data.results {
                         if results.isEmpty {
@@ -60,7 +73,7 @@ class NewComicViewController: UIViewController {
                         }
                     }
                 } else {
-    //
+                    setupAlert()
                 }
             }
         }
@@ -123,12 +136,7 @@ extension NewComicViewController: UICollectionViewDelegate, UICollectionViewData
             let vc = segue.destination as! ComicDetailViewController
             
             vc.comic = comics[selectedComic].base
-            
-              
         }
     }
-    
-    
-    
-    
 }
+

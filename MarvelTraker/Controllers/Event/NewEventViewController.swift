@@ -27,6 +27,8 @@ class NewEventViewController: UIViewController {
     var selectedEvent: Int = 0
     var target: String!
     var client: OTMClient = OTMClient()
+    let alert = UIAlertController(title: "Error", message: "There was an error loading", preferredStyle: UIAlertController.Style.alert)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTable.dataSource = self
@@ -37,9 +39,11 @@ class NewEventViewController: UIViewController {
     }
     
     func getEvents(name: String) {
+        self.view.activityStartAnimating()
         let hash = OTMClient().createHash()
         if let url = OTMClient().getEndpoint(type: .event, target: name) {
             OTMClient.taskForGetRequest(url: url,  responseType: EventResponse.self) { [self] (response, error) in
+                self.view.activityStopAnimating()
                 if error == nil {
                     if let results = response?.data.results {
                         if results.isEmpty {
@@ -55,7 +59,7 @@ class NewEventViewController: UIViewController {
                     }
                     eventTable.reloadData()
                 } else {
-    //
+                    setupAlert()
                 }
             }
         }
@@ -80,6 +84,15 @@ class NewEventViewController: UIViewController {
                 }
             }
             task.resume()
+        }
+    }
+    
+    func setupAlert() {
+        DispatchQueue.main.async {
+            self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                self.navigationController?.popToRootViewController(animated: true)
+            }))
+            self.present(self.alert, animated: true, completion: nil)
         }
     }
     

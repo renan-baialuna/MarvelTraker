@@ -28,6 +28,7 @@ class ComicMoreDetailsViewController: UIViewController {
     func setup() {
         titleLabel.text = comic.title
         resumeTextView.text = comic.resume
+        self.title = comic.title
         lanchDate.text = "Lauch: \(comic.launchDate.getDateString())"
         pageLabel.text = "Pages: \(comic.pages)"
         priceLabel.text = "Price: \(comic.value)"
@@ -64,6 +65,7 @@ class ComicMoreDetailsViewController: UIViewController {
         if segue.identifier == "toImage", let cover = comic.cover {
             var vc = segue.destination as!  ImageDetailViewController
             vc.newImage = cover
+            vc.newTitle = comic.title
         }
     }
     

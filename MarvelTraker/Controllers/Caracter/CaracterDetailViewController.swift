@@ -70,6 +70,7 @@ class CaracterDetailViewController: UIViewController {
         } else if segue.identifier == "toImage" {
             let vc = segue.destination as! ImageDetailViewController
             vc.newImage = caracter.image
+            vc.newTitle = caracter.name
         }
         
     }

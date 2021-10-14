@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     func getDateString() -> String {
         let formater = DateFormatter()
-        formater.dateFormat = "dd/MMM/yyyy"
+        formater.dateFormat = "MMM dd, yyyy"
         
         return formater.string(from: self)
     }
