@@ -19,6 +19,7 @@ class ComicDetailViewController: UIViewController {
     @IBOutlet weak var aquisitonButton: ContinueButton!
     var client: OTMClient = OTMClient()
     var image: ImageFormat? = nil
+    var imageToSave: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class ComicDetailViewController: UIViewController {
                         if let downloadedImage = UIImage(data: safeData) {
                             DispatchQueue.main.async { [self] in
                                 comicImageButton.setImage(downloadedImage, for: .normal)
+                                imageToSave = downloadedImage
                             }
                         }
                     }
@@ -95,6 +97,15 @@ class ComicDetailViewController: UIViewController {
         if segue.identifier == "toDetail" {
             var vc = segue.destination as! ComicMoreDetailsViewController
             vc.comic = comic
+
+        }
+        
+        if segue.identifier == "toAquisition" {
+            var vc = segue.destination as! ComicAquisitionViewController
+            vc.comic = comic
+            if let image = imageToSave {
+                vc.image = image
+            }
         }
     }
 }

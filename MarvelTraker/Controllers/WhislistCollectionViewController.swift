@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class WhislistCollectionViewController: UIViewController {
 
+    var memory: [MemoryWish] = []
     var wishList: [BasicComic] = []
     var index: Int = 0
-    
+
+    var dataController: DataController!
     @IBOutlet weak var whishCollection: UICollectionView!
     
     override func viewDidLoad() {
@@ -19,7 +22,16 @@ class WhislistCollectionViewController: UIViewController {
         
         whishCollection.delegate = self
         whishCollection.dataSource = self
-        // Do any additional setup after loading the view.
+        setupDataController()
+    }
+    
+    func setupDataController() {
+        let fetchRequest: NSFetchRequest<MemoryWish> = MemoryWish.fetchRequest()
+        
+        if let results = try? dataController.viewContext.fetch(fetchRequest) {
+//            locations = results
+            memory = results
+        }
     }
 }
 

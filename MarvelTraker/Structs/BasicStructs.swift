@@ -38,7 +38,6 @@ struct BasicCharacter {
     let resume: String
     let comics: [String]
     let link: String
-    
 }
 
 struct BasicComicInventory {
@@ -46,6 +45,5 @@ struct BasicComicInventory {
     let price: Float
     let aquisitonDate: Date
     let condition: Float
-    
 }
 

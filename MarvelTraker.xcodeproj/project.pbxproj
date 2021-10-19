@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8063707E271E05D700AF6E4F /* Extension+MemoryComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */; };
+		80637080271E08DD00AF6E4F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063707F271E08DD00AF6E4F /* DataController.swift */; };
 		8065527E26CCA139006E7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527D26CCA139006E7F38 /* AppDelegate.swift */; };
 		8065528026CCA139006E7F38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527F26CCA139006E7F38 /* SceneDelegate.swift */; };
 		8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065528126CCA139006E7F38 /* SearchViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MemoryComic.swift"; sourceTree = "<group>"; };
+		8063707F271E08DD00AF6E4F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		8065527A26CCA139006E7F38 /* MarvelTraker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTraker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8065527D26CCA139006E7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8065527F26CCA139006E7F38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				807771E42716508B0086DE66 /* Event */,
 				807771E5271650940086DE66 /* Caracter */,
 				807771E6271650D10086DE66 /* Universal */,
+				8065528126CCA139006E7F38 /* SearchViewController.swift */,
 				80DA7427270945760057CB71 /* InventoryListViewController.swift */,
 				806FF6E1270B41F20060F513 /* WishDetailViewController.swift */,
 				806FF6E7270B840E0060F513 /* InventoryDetailViewController.swift */,
@@ -179,6 +184,7 @@
 				806FF6EF270CB7890060F513 /* Extension+Float.swift */,
 				806FF6F1270CB7F20060F513 /* Extension+String.swift */,
 				807771E72718A5CD0086DE66 /* Extension+UIView.swift */,
+				8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				806FF6F6270E34880060F513 /* OTM Responses */,
+				8063707F271E08DD00AF6E4F /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 				80662CEE26F0303C002985E5 /* NewComicViewController.swift */,
 				809B106426F382EF00CAF7AD /* ComicDetailViewController.swift */,
 				806FF6E5270B79FF0060F513 /* ComicMoreDetailsViewController.swift */,
+				80DA742527077FD70057CB71 /* ComicAquisitionViewController.swift */,
 			);
 			path = Comic;
 			sourceTree = "<group>";
@@ -254,9 +262,7 @@
 		807771E6271650D10086DE66 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				8065528126CCA139006E7F38 /* SearchViewController.swift */,
 				80AD4DA227065703000D2146 /* WebViewScreenViewController.swift */,
-				80DA742527077FD70057CB71 /* ComicAquisitionViewController.swift */,
 				806FF6ED270C96B60060F513 /* ImageDetailViewController.swift */,
 				806FF6F3270CE5C50060F513 /* SearchTabBarController.swift */,
 			);
@@ -351,6 +357,7 @@
 				807771E227164E8D0086DE66 /* CaracterResponse.swift in Sources */,
 				806FF6E4270B782E0060F513 /* Extension+Date.swift in Sources */,
 				8065528826CCA139006E7F38 /* MarvelTraker.xcdatamodeld in Sources */,
+				80637080271E08DD00AF6E4F /* DataController.swift in Sources */,
 				806FF6EE270C96B60060F513 /* ImageDetailViewController.swift in Sources */,
 				80DA742A270945B10057CB71 /* InventoryTableViewCell.swift in Sources */,
 				80AD4D9F2704A632000D2146 /* CaracterCollectionViewCell.swift in Sources */,
@@ -359,6 +366,7 @@
 				806FF6EC270C854D0060F513 /* WhishCollectionViewCell.swift in Sources */,
 				807771E02713C6D00086DE66 /* EventResponse.swift in Sources */,
 				8081967326FC128B0014B1BE /* ContinueButton.swift in Sources */,
+				8063707E271E05D700AF6E4F /* Extension+MemoryComic.swift in Sources */,
 				80DA742627077FD70057CB71 /* ComicAquisitionViewController.swift in Sources */,
 				80AD4D992703A061000D2146 /* EventTableViewCell.swift in Sources */,
 				80AD4D9B2703B4F7000D2146 /* EventDetailViewController.swift in Sources */,

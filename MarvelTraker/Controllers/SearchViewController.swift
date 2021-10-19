@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchViewController: UIViewController {
     
@@ -13,7 +14,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var inventoryListButton: IconButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    
+    var dataController: DataController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +56,12 @@ class SearchViewController: UIViewController {
         if segue.identifier == "toResults" {
             var vc = segue.destination as! SearchTabBarController
             vc.target = searchTextField.text
-            
+        }
+        if segue.identifier == "toWhishlist" {
+            var vc = segue.destination as! WhislistCollectionViewController
+            vc.dataController = self.dataController
         }
     }
- 
-
 }
 
 extension SearchViewController: UITextFieldDelegate {
