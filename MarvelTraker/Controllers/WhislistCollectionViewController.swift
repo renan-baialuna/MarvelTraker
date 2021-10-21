@@ -11,7 +11,7 @@ import CoreData
 class WhislistCollectionViewController: UIViewController {
 
     var memory: [MemoryWish] = []
-    var wishList: [BasicComic] = []
+    var wishList: [UnitComic] = []
     var index: Int = 0
 
     var dataController: DataController!
@@ -31,6 +31,13 @@ class WhislistCollectionViewController: UIViewController {
         if let results = try? dataController.viewContext.fetch(fetchRequest) {
 //            locations = results
             memory = results
+            for i in memory {
+                if let comic = i.getBasicComic() {
+                    let unit = UnitComic(base: comic, image: UIImage(data: (i.comic?.image?.image)!)!)
+                    wishList.append(unit)
+                }
+            }
+            whishCollection.reloadData()
         }
     }
 }
@@ -42,10 +49,13 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "whishCell", for: indexPath) as! WhishCollectionViewCell
-        let comic = wishList[indexPath.row]
-        cell.authorLabel.text = comic.creators[0]
+        let comic = wishList[indexPath.row].base
+        if !comic.creators.isEmpty {
+            cell.authorLabel.text = comic.creators[0]
+        }
+       
         cell.titleLabel.text = comic.title
-//        cell.coverImage.image = comic.cover
+        cell.coverImage.image = wishList[indexPath.row].image
         
         return cell
     }
@@ -67,7 +77,8 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             var vc = segue.destination as! WishDetailViewController
-            vc.comic = wishList[index]
+            vc.comic = wishList[index].base
+            vc.oldImage = wishList[index].image
         }
         
         if segue.identifier == "toImage" {

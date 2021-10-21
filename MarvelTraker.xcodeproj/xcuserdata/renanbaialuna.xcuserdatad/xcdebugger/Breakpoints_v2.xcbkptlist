@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9F77CF24-95F5-4E36-B0D4-401E74A328D5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MarvelTraker/Controllers/Comic/ComicDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "setupImage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A7D696F0-8F36-4EB9-ACF0-9AC2985B92B4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -145,22 +129,6 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "dismissKeyboard()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "03F36EDC-FFD8-4E02-A3B1-81D3BC3C6ECF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MarvelTraker/Controllers/WhislistCollectionViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "setupDataController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

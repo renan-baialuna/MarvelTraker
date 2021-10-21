@@ -20,6 +20,7 @@ class ComicDetailViewController: UIViewController {
     var client: OTMClient = OTMClient()
     var image: ImageFormat? = nil
     var imageToSave: UIImage?
+    var dataController: DataController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,8 @@ class ComicDetailViewController: UIViewController {
         titleLabel.text = comic.title
         self.title = comic.title
         
-        
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        dataController = sceneDelegate.dataController
     }
     
     func setupImage() {
@@ -75,7 +77,7 @@ class ComicDetailViewController: UIViewController {
     }
     
     @IBAction func addToWish(_ sender: Any) {
-        
+        addToWish()
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -108,6 +110,29 @@ class ComicDetailViewController: UIViewController {
             }
         }
     }
+    
+    func addToWish() {
+        let comicWish = MemoryWish(context: dataController.viewContext)
+        let newComic = MemoryComic(context: dataController.viewContext)
+        let newComicImage = MemoryImage(context: dataController.viewContext)
+        
+        let comicImageFormat = comic.cover
+        newComicImage.image = self.imageToSave?.pngData()
+        newComicImage.link = comicImageFormat?.path
+        newComicImage.dataFormat = comicImageFormat?.extensionFormat
+        newComic.image = newComicImage
+        
+        newComic.comicId = Int32(comic.id)
+        newComic.lanch = comic.launchDate
+        newComic.title = comic.title
+        newComic.resume = comic.resume
+        newComic.series = comic.series
+        newComic.value = comic.value
+        comicWish.comic = newComic
+        try? dataController.viewContext.save()
+        
+    }
+    
 }
 
 

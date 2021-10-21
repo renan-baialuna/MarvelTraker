@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8063707E271E05D700AF6E4F /* Extension+MemoryComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */; };
 		80637080271E08DD00AF6E4F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063707F271E08DD00AF6E4F /* DataController.swift */; };
+		80637082271F578B00AF6E4F /* Extension+MemoryWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80637081271F578B00AF6E4F /* Extension+MemoryWish.swift */; };
 		8065527E26CCA139006E7F38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527D26CCA139006E7F38 /* AppDelegate.swift */; };
 		8065528026CCA139006E7F38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065527F26CCA139006E7F38 /* SceneDelegate.swift */; };
 		8065528226CCA139006E7F38 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065528126CCA139006E7F38 /* SearchViewController.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MemoryComic.swift"; sourceTree = "<group>"; };
 		8063707F271E08DD00AF6E4F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		80637081271F578B00AF6E4F /* Extension+MemoryWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MemoryWish.swift"; sourceTree = "<group>"; };
 		8065527A26CCA139006E7F38 /* MarvelTraker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTraker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8065527D26CCA139006E7F38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8065527F26CCA139006E7F38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				806FF6F1270CB7F20060F513 /* Extension+String.swift */,
 				807771E72718A5CD0086DE66 /* Extension+UIView.swift */,
 				8063707D271E05D700AF6E4F /* Extension+MemoryComic.swift */,
+				80637081271F578B00AF6E4F /* Extension+MemoryWish.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				806FF6E6270B79FF0060F513 /* ComicMoreDetailsViewController.swift in Sources */,
 				80662CE826EEF258002985E5 /* Extension+UIColor.swift in Sources */,
 				807771E82718A5CD0086DE66 /* Extension+UIView.swift in Sources */,
+				80637082271F578B00AF6E4F /* Extension+MemoryWish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

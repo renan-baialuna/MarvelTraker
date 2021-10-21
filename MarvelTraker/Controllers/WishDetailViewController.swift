@@ -9,6 +9,7 @@ import UIKit
 
 class WishDetailViewController: UIViewController {
     var comic: BasicComic!
+    var oldImage: UIImage?
     
     @IBOutlet weak var imageBackView: UIView!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -19,25 +20,22 @@ class WishDetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var aquisitonButton: UIButton!
     @IBOutlet weak var lupeImageView: UIImageView!
-    
+    var client: OTMClient = OTMClient()
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setup()
-        
-        
     }
     
     func setup() {
         setLupe()
         setButton()
         setData()
+        setupImage()
     }
     
     func setData() {
-//        coverImageView.image = comic.cover
         pagesLabel.text = "pages \(comic.pages)"
         launchDateLabel.text = "release date: \(comic.launchDate.getDateString())"
         seriesLabel.text = comic.series
@@ -60,6 +58,29 @@ class WishDetailViewController: UIViewController {
         aquisitonButton.backgroundColor = .selection
         aquisitonButton.setTitleColor(.detail, for: .normal)
         aquisitonButton.layer.borderColor = UIColor.detail.cgColor
+    }
+    
+    func setupImage() {
+        let image = comic.cover
+        let session = URLSession(configuration: .default)
+        if let image = image {
+            if let url = client.getEndpoint(data: image, size: .portrait_incredible) {
+                let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                    
+                    if error != nil {
+                        self.coverImageView.image = self.oldImage ?? .internalComicPlaceholder
+                    }
+                    if let safeData = data {
+                        if let downloadedImage = UIImage(data: safeData) {
+                            DispatchQueue.main.async { [self] in
+                                coverImageView.image = downloadedImage
+                            }
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
     }
     
     @IBAction func selectImage(_ sender: Any) {

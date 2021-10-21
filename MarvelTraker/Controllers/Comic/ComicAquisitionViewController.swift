@@ -29,33 +29,7 @@ class ComicAquisitionViewController: UIViewController {
         
     }
     
-    func addToWish() {
-        let comicWish = MemoryWish(context: dataController.viewContext)
-        let newComic = MemoryComic(context: dataController.viewContext)
-        let newComicImage = MemoryImage(context: dataController.viewContext)
-        
-        let comicImageFormat = comic.cover
-        newComicImage.image = image.pngData()
-        newComicImage.link = comicImageFormat?.path
-        newComicImage.dataFormat = comicImageFormat?.extensionFormat
-        newComic.image = newComicImage
-        
-        newComic.comicId = Int32(comic.id)
-        newComic.lanch = comic.launchDate
-        newComic.title = comic.title
-        newComic.resume = comic.resume
-        newComic.series = comic.series
-        newComic.value = comic.value
-//        todo: Add creator
-        comicWish.comic = newComic
-        
-        
-//        newComic.comicId = comic.id
-        
-        try? dataController.viewContext.save()
-        
-    }
-    
+
     @IBAction func changePriceTextfield(_ sender: Any) {
         numericalCondition = stateField.text!.floatValue
         if numericalCondition >= 0 && numericalCondition <= 10 {
@@ -77,7 +51,6 @@ class ComicAquisitionViewController: UIViewController {
     
     @IBAction func saveDate(_ sender: Any) {
         aditionDate = datePicker.date
-        addToWish()
     }
 }
 
