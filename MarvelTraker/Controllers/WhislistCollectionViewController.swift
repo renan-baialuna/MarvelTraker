@@ -29,7 +29,6 @@ class WhislistCollectionViewController: UIViewController {
         let fetchRequest: NSFetchRequest<MemoryWish> = MemoryWish.fetchRequest()
         
         if let results = try? dataController.viewContext.fetch(fetchRequest) {
-//            locations = results
             memory = results
             for i in memory {
                 if let comic = i.getBasicComic() {

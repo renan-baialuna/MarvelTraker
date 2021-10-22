@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ComicAquisitionViewController: UIViewController {
     @IBOutlet weak var conditionSlide: UISlider!
@@ -49,10 +50,35 @@ class ComicAquisitionViewController: UIViewController {
         stateLabel.text = numericalCondition.getCondition
     }
     
+    func addToInventory() {
+        let comicInventory = MemoryInventory(context: dataController.viewContext)
+        let newComic = MemoryComic(context: dataController.viewContext)
+        let newComicImage = MemoryImage(context: dataController.viewContext)
+        
+        let comicImageFormat = comic.cover
+        newComicImage.image = self.image.pngData()
+        newComicImage.link = comicImageFormat?.path
+        newComicImage.dataFormat = comicImageFormat?.extensionFormat
+        newComic.image = newComicImage
+        
+        newComic.comicId = Int32(comic.id)
+        newComic.lanch = comic.launchDate
+        newComic.title = comic.title
+        newComic.resume = comic.resume
+        newComic.series = comic.series
+        newComic.value = comic.value
+        comicInventory.comic = newComic
+        comicInventory.aditionDate = datePicker.date
+        comicInventory.condition = conditionSlide.value
+        comicInventory.value = valueTextField.text?.floatValue ?? 0.0
+        try? dataController.viewContext.save()
+        
+    }
+    
     @IBAction func saveDate(_ sender: Any) {
-        aditionDate = datePicker.date
+        addToInventory()
+        navigationController?.popViewController(animated: true)
     }
 }
-
 
 

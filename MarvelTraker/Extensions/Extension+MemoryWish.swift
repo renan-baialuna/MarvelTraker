@@ -28,3 +28,37 @@ extension MemoryWish {
         }
     }
 }
+
+extension MemoryInventory {
+    func getBasicComic() -> BasicComic? {
+        if let comic = self.comic {
+            
+            let imageFormat: ImageFormat = ImageFormat(path: self.comic?.image?.link ?? "", extensionFormat: self.comic?.image?.dataFormat ?? "")
+            let id = Int(comic.comicId)
+            let title = comic.title ?? ""
+            let resume = comic.resume ?? ""
+            let launchDate = self.comic?.lanch ?? Date()
+            let link = self.comic?.link ?? ""
+            let pages = Int(comic.pages) ?? 0
+            let value = self.comic?.value ?? 0.0
+            let series = self.comic?.series ?? ""
+            
+            let ret: BasicComic = BasicComic(id: id, title: title, resume: resume, cover: imageFormat, launchDate: launchDate, creators: [], link: link, pages: pages, value: value, series: series)
+            return ret
+        } else {
+            return nil
+        }
+    }
+    
+    func getInventoryComic() -> BasicComicInventory? {
+        if let  basic = self.getBasicComic(), let date = self.aditionDate {
+            return BasicComicInventory(comic: basic, price: self.value, aquisitonDate: date, condition: self.condition)
+        } else {
+            return nil
+        }
+    }
+    
+    func getImageData() -> Data? {
+        return self.comic?.image?.image
+    }
+}

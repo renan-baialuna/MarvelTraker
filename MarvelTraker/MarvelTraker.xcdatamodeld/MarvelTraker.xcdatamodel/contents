@@ -11,7 +11,7 @@
         <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MemoryImage" inverseName="comic" inverseEntity="MemoryImage"/>
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MemoryWish" inverseName="comic" inverseEntity="MemoryWish"/>
-        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MemoryInventory" inverseName="comics" inverseEntity="MemoryInventory"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MemoryInventory" inverseName="comic" inverseEntity="MemoryInventory"/>
     </entity>
     <entity name="MemoryImage" representedClassName="MemoryImage" syncable="YES" codeGenerationType="class">
         <attribute name="dataFormat" optional="YES" attributeType="String"/>
@@ -23,7 +23,7 @@
         <attribute name="aditionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="condition" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="comics" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MemoryComic" inverseName="newRelationship1" inverseEntity="MemoryComic"/>
+        <relationship name="comic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MemoryComic" inverseName="newRelationship1" inverseEntity="MemoryComic"/>
     </entity>
     <entity name="MemoryWish" representedClassName="MemoryWish" syncable="YES" codeGenerationType="class">
         <relationship name="comic" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MemoryComic" inverseName="newRelationship" inverseEntity="MemoryComic"/>
