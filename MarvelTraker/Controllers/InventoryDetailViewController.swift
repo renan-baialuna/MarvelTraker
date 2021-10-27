@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class InventoryDetailViewController: UIViewController {
-    var comic: BasicComicInventory!
+    var unitComic: UnitInventoryComic!
+    var dataController: DataController!
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var serieLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -25,6 +29,10 @@ class InventoryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        dataController = sceneDelegate.dataController
+        
+        
         setButton()
         setLupe()
         setData()
@@ -43,14 +51,14 @@ class InventoryDetailViewController: UIViewController {
     }
     
     func setData() {
-        titleLabel.text = comic.comic.title
-        serieLabel.text = comic.comic.series
+        titleLabel.text = unitComic.comic.comic.title
+        serieLabel.text = unitComic.comic.comic.series
 //        coverImageView.image = comic.comic.cover
-        lanchDateLabel.text = "Lauch: \(comic.comic.launchDate.getDateString())"
-        aditionDateLabel.text = "Aquisition \(comic.aquisitonDate.getDateString())"
-        valueLabel.text = "price: \(comic.price)"
-        conditionLabel.text = "conditional: \(comic.condition)"
-        descriptionTextView.text = comic.comic.resume
+        lanchDateLabel.text = "Lauch: \(unitComic.comic.comic.launchDate.getDateString())"
+        aditionDateLabel.text = "Aquisition \(unitComic.comic.aquisitonDate.getDateString())"
+        valueLabel.text = "price: \(unitComic.comic.price)"
+        conditionLabel.text = "conditional: \(unitComic.comic.condition)"
+        descriptionTextView.text = unitComic.comic.comic.resume
     }
     
     func setLupe() {
@@ -68,7 +76,13 @@ class InventoryDetailViewController: UIViewController {
     @IBAction func removeAction(_ sender: Any) {
         let alert = UIAlertController(title: "Are you sure you what to delete", message: "Message", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Delete immediately!", style: UIAlertAction.Style.default, handler: {_ in
-            self.navigationController?.popToRootViewController(animated: true)
+            let inventoryToDelete = self.unitComic.base
+            self.dataController.viewContext.delete(inventoryToDelete)
+            try? self.dataController.viewContext.save()
+//            self.navigationController?.popToRootViewController(animated: true)
+            
+            self.popBack(2)
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel deletion", style: UIAlertAction.Style.cancel, handler: {_ in
             
@@ -85,6 +99,18 @@ class InventoryDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEdition" {
             
+        }
+    }
+}
+
+
+extension UIViewController {
+    func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
         }
     }
 }

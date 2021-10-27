@@ -11,9 +11,11 @@ import CoreData
 class UnitInventoryComic {
     var comic: BasicComicInventory!
     var image: UIImage = .internalComicPlaceholder
-    init(comic: BasicComicInventory, image: UIImage) {
+    var base: MemoryInventory
+    init(comic: BasicComicInventory, image: UIImage, base: MemoryInventory) {
         self.comic = comic
         self.image = image
+        self.base = base
     }
 }
 
@@ -31,10 +33,16 @@ class InventoryListViewController: UIViewController {
         
         let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
         dataController = sceneDelegate.dataController
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupDataController()
+        self.comicsTable.reloadData()
     }
     
     func setupDataController() {
+        inventory = []
         let fetchRequest: NSFetchRequest<MemoryInventory> = MemoryInventory.fetchRequest()
         
         if let results = try? dataController.viewContext.fetch(fetchRequest) {
@@ -46,7 +54,7 @@ class InventoryListViewController: UIViewController {
                             newImage = image
                         }
                     }
-                    let inventoryItem = UnitInventoryComic(comic: comic, image: newImage)
+                    let inventoryItem = UnitInventoryComic(comic: comic, image: newImage, base: i)
                     inventory.append(inventoryItem)
                 }
             }
@@ -88,7 +96,7 @@ extension InventoryListViewController: UITableViewDelegate, UITableViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
             var vc = segue.destination as! InventoryDetailViewController
-            vc.comic = inventory[selectedIndex].comic
+            vc.unitComic = inventory[selectedIndex]
         }
     }
 
