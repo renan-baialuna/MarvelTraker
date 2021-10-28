@@ -1036,11 +1036,12 @@
                         <outlet property="titleLabel" destination="RE9-eb-eyy" id="V60-oi-xBb"/>
                         <outlet property="valueLabel" destination="TP8-og-Xei" id="GJg-HX-mpt"/>
                         <segue destination="jNF-HT-vEq" kind="show" identifier="toEdition" id="UEs-eE-f7R"/>
+                        <segue destination="yKU-T0-KRD" kind="show" identifier="toImage" id="cJ9-jb-XvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQm-OX-pgp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="1813"/>
+            <point key="canvasLocation" x="-284" y="2516"/>
         </scene>
         <!--Wish Detail View Controller-->
         <scene sceneID="Arz-7a-w8E">
@@ -2188,7 +2189,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="UEs-eE-f7R"/>
-        <segue reference="fqS-ce-VuG"/>
+        <segue reference="cJ9-jb-XvK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>

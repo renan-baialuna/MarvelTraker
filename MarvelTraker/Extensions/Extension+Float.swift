@@ -53,4 +53,9 @@ extension Float {
             return allScale[index - 1].name
         }
     }
+    
+    func simplefy() -> String {
+        return String(format: "%.2f", self)
+    }
+    
 }

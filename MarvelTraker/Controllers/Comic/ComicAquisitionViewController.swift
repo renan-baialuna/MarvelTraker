@@ -19,15 +19,28 @@ class ComicAquisitionViewController: UIViewController {
     var comic: BasicComic!
     var numericalCondition: Float = 5.0
     var image: UIImage!
-    
+    var unitComic: UnitInventoryComic?
     
     var aditionDate: Date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let unit = unitComic {
+            setInitialValues(base: unit.comic)
+            
+        }
+        
         let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
         dataController = sceneDelegate.dataController
         
+    }
+    
+    func setInitialValues(base: BasicComicInventory) {
+        conditionSlide.setValue(base.condition, animated: true)
+        stateLabel.text = base.condition.getCondition
+        datePicker.setDate(base.aquisitonDate, animated: true)
+        stateField.text = base.condition.simplefy()
+        valueTextField.text = base.price.simplefy()
     }
     
 
@@ -75,9 +88,28 @@ class ComicAquisitionViewController: UIViewController {
         
     }
     
+    func changeInventory() {
+        
+    }
+    
+    
     @IBAction func saveDate(_ sender: Any) {
-        addToInventory()
-        navigationController?.popViewController(animated: true)
+        if let unit = unitComic {
+            
+            unit.base.aditionDate = datePicker.date
+            unit.base.condition = conditionSlide.value
+            unit.base.value = valueTextField.text?.floatValue ?? 0.0
+            try? dataController.viewContext.save()
+            
+            self.popBack(3)
+            
+        } else if comic != nil{
+            addToInventory()
+            navigationController?.popViewController(animated: true)
+        }
+       
+        
+        
     }
 }
 
