@@ -1216,7 +1216,13 @@
                             <constraint firstItem="Z8g-3N-yO2" firstAttribute="trailing" secondItem="2ZE-vT-Xsu" secondAttribute="trailing" id="q87-TY-gUm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="y1O-tS-DvL"/>
+                    <navigationItem key="navigationItem" id="y1O-tS-DvL">
+                        <barButtonItem key="rightBarButtonItem" image="excludeIcon" id="kCw-hb-S8W">
+                            <connections>
+                                <action selector="deleteWish" destination="e8A-rX-rAH" id="tFV-gE-D6D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="aquisitonButton" destination="lZw-49-QHg" id="Nse-Bz-WG5"/>
                         <outlet property="coverImageView" destination="3E3-At-Drl" id="Npo-QA-hze"/>
@@ -2189,7 +2195,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="UEs-eE-f7R"/>
-        <segue reference="cJ9-jb-XvK"/>
+        <segue reference="fqS-ce-VuG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>

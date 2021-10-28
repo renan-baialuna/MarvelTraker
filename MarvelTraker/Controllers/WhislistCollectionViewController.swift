@@ -8,10 +8,20 @@
 import UIKit
 import CoreData
 
+class UnitWishComic {
+    var comic: BasicComic!
+    var image: UIImage = .internalComicPlaceholder
+    var base: MemoryWish
+    init(comic: BasicComic, image: UIImage, base: MemoryWish) {
+        self.comic = comic
+        self.image = image
+        self.base = base
+    }
+}
+
 class WhislistCollectionViewController: UIViewController {
 
-    var memory: [MemoryWish] = []
-    var wishList: [UnitComic] = []
+    var wishList: [UnitWishComic] = []
     var index: Int = 0
 
     var dataController: DataController!
@@ -22,17 +32,24 @@ class WhislistCollectionViewController: UIViewController {
         
         whishCollection.delegate = self
         whishCollection.dataSource = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setupDataController()
     }
     
     func setupDataController() {
+        wishList = []
         let fetchRequest: NSFetchRequest<MemoryWish> = MemoryWish.fetchRequest()
         
         if let results = try? dataController.viewContext.fetch(fetchRequest) {
-            memory = results
-            for i in memory {
+            for i in results {
                 if let comic = i.getBasicComic() {
-                    let unit = UnitComic(base: comic, image: UIImage(data: (i.comic?.image?.image)!)!)
+                    let unit = UnitWishComic(comic: comic, image: UIImage(data: (i.comic?.image?.image)!)!, base: i)
+//                    let unit = UnitComic(base: comic, image: UIImage(data: (i.comic?.image?.image)!)!)
                     wishList.append(unit)
                 }
             }
@@ -48,12 +65,12 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "whishCell", for: indexPath) as! WhishCollectionViewCell
-        let comic = wishList[indexPath.row].base
-        if !comic.creators.isEmpty {
-            cell.authorLabel.text = comic.creators[0]
+        if let unitComic = wishList[indexPath.row].comic, !unitComic.creators.isEmpty {
+            cell.authorLabel.text = unitComic.creators[0]
+            cell.titleLabel.text = unitComic.title
         }
        
-        cell.titleLabel.text = comic.title
+        
         cell.coverImage.image = wishList[indexPath.row].image
         
         return cell
@@ -76,8 +93,9 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             var vc = segue.destination as! WishDetailViewController
-            vc.comic = wishList[index].base
-            vc.oldImage = wishList[index].image
+            vc.unitComic = wishList[index]
+//            vc.comic = wishList[index].comic
+//            vc.oldImage = wishList[index].image
         }
         
         if segue.identifier == "toImage" {

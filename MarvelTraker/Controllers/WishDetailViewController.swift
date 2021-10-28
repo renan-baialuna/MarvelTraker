@@ -9,6 +9,8 @@ import UIKit
 
 class WishDetailViewController: UIViewController {
     var comic: BasicComic!
+    var unitComic: UnitWishComic!
+    var dataController: DataController!
     var oldImage: UIImage?
     
     @IBOutlet weak var imageBackView: UIView!
@@ -25,6 +27,10 @@ class WishDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        comic = unitComic.comic
+        oldImage = unitComic.image
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        dataController = sceneDelegate.dataController
         setup()
     }
     
@@ -60,6 +66,13 @@ class WishDetailViewController: UIViewController {
         aquisitonButton.layer.borderColor = UIColor.detail.cgColor
     }
     
+    func deleteFromWish() {
+        let inventoryToDelete = self.unitComic.base
+        self.dataController.viewContext.delete(inventoryToDelete)
+        try? self.dataController.viewContext.save()
+        self.popBack(2)
+    }
+    
     func setupImage() {
         let image = comic.cover
         let session = URLSession(configuration: .default)
@@ -83,6 +96,10 @@ class WishDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func deleteWish() {
+        deleteFromWish()
+    }
+    
     @IBAction func selectImage(_ sender: Any) {
         
         performSegue(withIdentifier: "toImage", sender: nil)
@@ -95,7 +112,7 @@ class WishDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toImage" {
             var vc = segue.destination as! ImageDetailViewController
-//            vc.image = comic.cover
+            vc.newImage = comic.cover!
         }
     }
 }
