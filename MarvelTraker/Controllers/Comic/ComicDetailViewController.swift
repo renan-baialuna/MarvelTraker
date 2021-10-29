@@ -105,6 +105,7 @@ class ComicDetailViewController: UIViewController {
         if segue.identifier == "toAquisition" {
             var vc = segue.destination as! ComicAquisitionViewController
             vc.comic = comic
+            vc.typeEntrance = .adition
             if let image = imageToSave {
                 vc.image = image
             }

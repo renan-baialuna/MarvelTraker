@@ -48,8 +48,7 @@ class WhislistCollectionViewController: UIViewController {
         if let results = try? dataController.viewContext.fetch(fetchRequest) {
             for i in results {
                 if let comic = i.getBasicComic() {
-                    let unit = UnitWishComic(comic: comic, image: UIImage(data: (i.comic?.image?.image)!)!, base: i)
-//                    let unit = UnitComic(base: comic, image: UIImage(data: (i.comic?.image?.image)!)!)
+                    let unit = UnitWishComic(comic: comic, image: UIImage(data: (i.comic!.image!.image)!)!, base: i)
                     wishList.append(unit)
                 }
             }
@@ -94,8 +93,6 @@ extension WhislistCollectionViewController: UICollectionViewDelegate, UICollecti
         if segue.identifier == "toDetail" {
             var vc = segue.destination as! WishDetailViewController
             vc.unitComic = wishList[index]
-//            vc.comic = wishList[index].comic
-//            vc.oldImage = wishList[index].image
         }
         
         if segue.identifier == "toImage" {

@@ -106,13 +106,25 @@ class WishDetailViewController: UIViewController {
     }
     
     @IBAction func aquisitonAction(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popToRootViewController(animated: true)
+        performSegue(withIdentifier: "toAquisition", sender: nil)
+        
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toImage" {
             var vc = segue.destination as! ImageDetailViewController
             vc.newImage = comic.cover!
+        }
+        
+        if segue.identifier == "toAquisition" {
+            var vc = segue.destination as! ComicAquisitionViewController
+            vc.typeEntrance = .aditionWish
+            vc.unitWish = self.unitComic
+            vc.image = coverImageView.image
+            
         }
     }
 }

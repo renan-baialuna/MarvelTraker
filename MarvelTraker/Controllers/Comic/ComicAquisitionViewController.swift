@@ -8,6 +8,12 @@
 import UIKit
 import CoreData
 
+enum typeData {
+    case adition
+    case modification
+    case aditionWish
+}
+
 class ComicAquisitionViewController: UIViewController {
     @IBOutlet weak var conditionSlide: UISlider!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -20,6 +26,10 @@ class ComicAquisitionViewController: UIViewController {
     var numericalCondition: Float = 5.0
     var image: UIImage!
     var unitComic: UnitInventoryComic?
+    
+    
+    var unitWish: UnitWishComic?
+    var typeEntrance: typeData?
     
     var aditionDate: Date = Date()
 
@@ -63,7 +73,7 @@ class ComicAquisitionViewController: UIViewController {
         stateLabel.text = numericalCondition.getCondition
     }
     
-    func addToInventory() {
+    func addToInventory(_ comic: BasicComic) {
         let comicInventory = MemoryInventory(context: dataController.viewContext)
         let newComic = MemoryComic(context: dataController.viewContext)
         let newComicImage = MemoryImage(context: dataController.viewContext)
@@ -92,8 +102,18 @@ class ComicAquisitionViewController: UIViewController {
         
     }
     
+    func addFromWish() {
+        if let unit = unitWish {
+            addToInventory(unit.comic)
+            let inventoryToDelete = unit.base
+            self.dataController.viewContext.delete(inventoryToDelete)
+            try? self.dataController.viewContext.save()
+            
+            self.popBack(2)
+        }
+    }
     
-    @IBAction func saveDate(_ sender: Any) {
+    func modifyInventory() {
         if let unit = unitComic {
             
             unit.base.aditionDate = datePicker.date
@@ -103,13 +123,22 @@ class ComicAquisitionViewController: UIViewController {
             
             self.popBack(3)
             
-        } else if comic != nil{
-            addToInventory()
-            navigationController?.popViewController(animated: true)
         }
-       
-        
-        
+    }
+    
+    
+    @IBAction func saveDate(_ sender: Any) {
+        switch typeEntrance {
+        case .modification:
+            modifyInventory()
+        case .adition:
+            addToInventory(self.comic)
+            navigationController?.popViewController(animated: true)
+        case .aditionWish:
+            addFromWish()
+        default:
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
 

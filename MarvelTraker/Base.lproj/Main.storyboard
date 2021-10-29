@@ -1234,6 +1234,7 @@
                         <outlet property="priceLabel" destination="TF1-LG-Rhy" id="ZVj-YQ-MBl"/>
                         <outlet property="seriesLabel" destination="CwP-O7-fnw" id="icb-r1-qEe"/>
                         <segue destination="yKU-T0-KRD" kind="show" identifier="toImage" id="fqS-ce-VuG"/>
+                        <segue destination="jNF-HT-vEq" kind="show" identifier="toAquisition" id="Pow-J9-hbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSx-8n-eJ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2194,7 +2195,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UEs-eE-f7R"/>
+        <segue reference="Pow-J9-hbI"/>
         <segue reference="fqS-ce-VuG"/>
     </inferredMetricsTieBreakers>
     <resources>

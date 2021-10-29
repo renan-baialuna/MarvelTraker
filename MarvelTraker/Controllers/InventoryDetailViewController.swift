@@ -117,6 +117,7 @@ class InventoryDetailViewController: UIViewController {
         if segue.identifier == "toEdition" {
             var vc = segue.destination as!  ComicAquisitionViewController
             vc.unitComic = unitComic
+            vc.typeEntrance = .modification
         }
         
         if segue.identifier == "toImage" {
