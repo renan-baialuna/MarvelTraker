@@ -39,7 +39,7 @@ class ComicAquisitionViewController: UIViewController {
             setInitialValues(base: unit.comic)
             
         }
-        
+        setupbackground()
         let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
         dataController = sceneDelegate.dataController
         
@@ -53,6 +53,14 @@ class ComicAquisitionViewController: UIViewController {
         valueTextField.text = base.price.simplefy()
     }
     
+    func setupbackground() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+       view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     @IBAction func changePriceTextfield(_ sender: Any) {
         numericalCondition = stateField.text!.floatValue
