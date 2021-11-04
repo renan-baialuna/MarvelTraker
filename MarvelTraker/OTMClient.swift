@@ -109,8 +109,8 @@ class OTMClient {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
-        let dateStart: Date = dateFormatter.date(from: base.start)!
-        let dateEnd: Date = dateFormatter.date(from: base.end)!
+        let dateStart: Date = dateFormatter.date(from: base.start ?? "no date available")!
+        let dateEnd: Date = dateFormatter.date(from: base.end ?? "no date available")!
         let dates: String = "\(dateStart.getDateString())-\(dateStart.getDateString())"
         
         
@@ -118,7 +118,7 @@ class OTMClient {
         
         let ret = BasicEvent(id: base.id,
                    title: base.title,
-                   resume: base.description,
+                   resume: base.description ?? "No Description",
                    cover: base.thumbnail,
                    dates: dates,
                    comicsIds: comicsId,

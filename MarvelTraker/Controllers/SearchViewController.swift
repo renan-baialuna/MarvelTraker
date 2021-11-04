@@ -10,6 +10,8 @@ import CoreData
 
 class SearchViewController: UIViewController {
     
+    let alert = UIAlertController(title: "Alert", message: "Please add some information to search", preferredStyle: UIAlertController.Style.alert)
+    
     @IBOutlet weak var wishListButton: IconButton!
     @IBOutlet weak var inventoryListButton: IconButton!
     @IBOutlet weak var searchButton: UIButton!
@@ -36,12 +38,26 @@ class SearchViewController: UIViewController {
        view.addGestureRecognizer(tap)
     }
     
+    func setupAlert() {
+        DispatchQueue.main.async {
+            self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                
+            }))
+            self.present(self.alert, animated: true, completion: nil)
+        }
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
     @IBAction func startSearch() {
-        performSegue(withIdentifier: "toResults", sender: nil)
+        if self.searchTextField.text != "" {
+            performSegue(withIdentifier: "toResults", sender: nil)
+        } else {
+            setupAlert()
+        }
+        
     }
     
     @IBAction func goWhish() {

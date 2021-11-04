@@ -23,9 +23,9 @@ struct DataClassEvent: Codable {
 struct ResultEvent: Codable {
     let id: Int
     let title: String
-    let description: String
-    let start: String
-    let end: String
+    let description: String?
+    let start: String?
+    let end: String?
     let thumbnail: ImageFormat
     let creators: Creators
     let comics: ComicItens
