@@ -53,7 +53,7 @@ class NewCaracterViewController: UIViewController {
                             }
                         }
                     }
-                    caracterCollection.reloadData()
+                    self.reloadList()
                 } else {
                     setupAlert()
                 }
@@ -72,7 +72,7 @@ class NewCaracterViewController: UIViewController {
                     if let downloadedImage = UIImage(data: safeData) {
                         DispatchQueue.main.async { [self] in
                             caracter.image = downloadedImage
-                            caracterCollection.reloadData()
+                            self.reloadList()
                         }
                         
                     }
@@ -96,6 +96,12 @@ class NewCaracterViewController: UIViewController {
         if segue.identifier == "toCaracter" {
             var vc = segue.destination as! CaracterDetailViewController
             vc.caracter = caracters[selectedIndex].base
+        }
+    }
+    
+    func reloadList() {
+        DispatchQueue.main.async { [self] in
+            self.caracterCollection.reloadData()
         }
     }
     

@@ -117,6 +117,7 @@ class WishDetailViewController: UIViewController {
         if segue.identifier == "toImage" {
             var vc = segue.destination as! ImageDetailViewController
             vc.newImage = comic.cover!
+            vc.offlineImage = self.oldImage ?? .internalComicPlaceholder
         }
         
         if segue.identifier == "toAquisition" {

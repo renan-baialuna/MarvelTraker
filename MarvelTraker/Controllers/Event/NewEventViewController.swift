@@ -57,7 +57,7 @@ class NewEventViewController: UIViewController {
                         }
 
                     }
-                    eventTable.reloadData()
+                    self.reloadList()
                 } else {
                     setupAlert()
                 }
@@ -93,6 +93,12 @@ class NewEventViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }))
             self.present(self.alert, animated: true, completion: nil)
+        }
+    }
+    
+    func reloadList() {
+        DispatchQueue.main.async { [self] in
+            self.eventTable.reloadData()
         }
     }
     

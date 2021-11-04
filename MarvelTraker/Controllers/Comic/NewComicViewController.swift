@@ -68,7 +68,7 @@ class NewComicViewController: UIViewController {
                                     
                                     getImage(comic: newComic)
                                 }
-                                comicCollection.reloadData()
+                                self.reloadList()
                             }
                         }
                     }
@@ -76,6 +76,12 @@ class NewComicViewController: UIViewController {
                     setupAlert()
                 }
             }
+        }
+    }
+    
+    func reloadList() {
+        DispatchQueue.main.async { [self] in
+            comicCollection.reloadData()
         }
     }
     
@@ -91,7 +97,7 @@ class NewComicViewController: UIViewController {
                         if let downloadedImage = UIImage(data: safeData) {
                             DispatchQueue.main.async { [self] in
                                 comic.image = downloadedImage
-                                comicCollection.reloadData()
+                                self.reloadList() 
                             }
                             
                         }

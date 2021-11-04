@@ -74,7 +74,9 @@ class InventoryDetailViewController: UIViewController {
                 let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
                     
                     if error != nil {
-                        self.coverImageView.image = self.unitComic.image
+                        DispatchQueue.main.async {
+                            self.coverImageView.image = self.unitComic.image
+                        }
                     }
                     if let safeData = data {
                         if let downloadedImage = UIImage(data: safeData) {
@@ -124,6 +126,7 @@ class InventoryDetailViewController: UIViewController {
             var vc = segue.destination as!  ImageDetailViewController
             vc.newImage = unitComic.comic.comic.cover!
             vc.newTitle = unitComic.comic.comic.title
+            vc.offlineImage = self.unitComic.image
         }
     }
 }

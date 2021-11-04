@@ -11,16 +11,20 @@ class ImageDetailViewController: UIViewController {
 
     @IBOutlet weak var mainImage: UIImageView!
     var newTitle: String! = ""
-    var newImage = ImageFormat(path: "http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73", extensionFormat: "jpg")
+    var newImage = ImageFormat(path: "", extensionFormat: "jpg")
+    var offlineImage: UIImage = .internalComicPlaceholder
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mainImage.image = offlineImage
         
         self.title = newTitle
-        if let url = OTMClient().getEndpoint(data: newImage, size: .portrait_incredible) {
-            getImage(url: url)
+        if newImage.path == "" {
+            
+        } else {
+            if let url = OTMClient().getEndpoint(data: newImage, size: .portrait_incredible) {
+                getImage(url: url)
+            }
         }
-        
-        
     }
     
     func getImage(url: URL) {

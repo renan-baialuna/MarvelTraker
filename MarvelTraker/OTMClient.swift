@@ -109,12 +109,12 @@ class OTMClient {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
-        let dateStart: Date = dateFormatter.date(from: base.start ?? "no date available")!
-        let dateEnd: Date = dateFormatter.date(from: base.end ?? "no date available")!
-        let dates: String = "\(dateStart.getDateString())-\(dateStart.getDateString())"
         
+        var dates: String = "-"
         
-        
+        if let start = base.start, let end = base.start, let startDate = dateFormatter.date(from: start), let endDate = dateFormatter.date(from: end) {
+            dates = "\(startDate.getDateString())-\(endDate.getDateString())"
+        }
         
         let ret = BasicEvent(id: base.id,
                    title: base.title,
