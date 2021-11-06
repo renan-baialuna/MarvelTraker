@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let dataController = DataController(modelName: "MarvelTraker")
+    let lastSearchKey: String = "lastSearchKey"
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -59,3 +60,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+extension SceneDelegate {
+    func setLastSearch(search: String) {
+        UserDefaults.standard.set(search, forKey: lastSearchKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func getLastSearch() -> String? {
+        if let lastSearch = UserDefaults.standard.string(forKey: lastSearchKey) {
+            return lastSearch
+        } else {
+            return nil
+        }
+    }
+}

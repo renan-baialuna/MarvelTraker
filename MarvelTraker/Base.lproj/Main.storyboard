@@ -49,13 +49,26 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB9-1l-Cam">
+                                                <rect key="frame" x="40" y="129" width="354" height="27"/>
+                                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" name="Detail"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bringSearch" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGi-mg-0ZM"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
                                         <constraints>
+                                            <constraint firstItem="vB9-1l-Cam" firstAttribute="leading" secondItem="P2J-UC-bML" secondAttribute="leading" constant="20" id="5By-pJ-CG8"/>
                                             <constraint firstItem="P2J-UC-bML" firstAttribute="leading" secondItem="QAi-6I-3jf" secondAttribute="leading" constant="20" id="7z5-I3-MNB"/>
                                             <constraint firstAttribute="trailing" secondItem="P2J-UC-bML" secondAttribute="trailing" constant="20" id="Dp0-JV-et2"/>
+                                            <constraint firstItem="vB9-1l-Cam" firstAttribute="top" secondItem="P2J-UC-bML" secondAttribute="bottom" constant="15" id="EmS-k4-FAb"/>
                                             <constraint firstItem="P2J-UC-bML" firstAttribute="centerY" secondItem="QAi-6I-3jf" secondAttribute="centerY" id="evG-8A-CCe"/>
                                             <constraint firstItem="P2J-UC-bML" firstAttribute="centerX" secondItem="QAi-6I-3jf" secondAttribute="centerX" id="fOd-gW-MwF"/>
+                                            <constraint firstItem="vB9-1l-Cam" firstAttribute="trailing" secondItem="P2J-UC-bML" secondAttribute="trailing" id="vLd-PK-Qvi"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-Ro-Pe6">
@@ -129,6 +142,7 @@
                     <navigationItem key="navigationItem" id="UZx-ga-Yt2"/>
                     <connections>
                         <outlet property="inventoryListButton" destination="q8V-bd-gNc" id="Z4I-pq-5zP"/>
+                        <outlet property="lastSearchButton" destination="vB9-1l-Cam" id="4EU-ZZ-v8P"/>
                         <outlet property="searchButton" destination="GSp-oS-c9n" id="M18-6Y-eNm"/>
                         <outlet property="searchTextField" destination="P2J-UC-bML" id="Bh8-Wg-YU9"/>
                         <outlet property="wishListButton" destination="fKg-4K-hq4" id="MRb-b4-S8d"/>

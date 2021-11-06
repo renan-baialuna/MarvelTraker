@@ -12,11 +12,13 @@ class SearchViewController: UIViewController {
     
     let alert = UIAlertController(title: "Alert", message: "Please add some information to search", preferredStyle: UIAlertController.Style.alert)
     
+    @IBOutlet weak var lastSearchButton: UIButton!
     @IBOutlet weak var wishListButton: IconButton!
     @IBOutlet weak var inventoryListButton: IconButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     var dataController: DataController!
+    let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupSearchButton(last: sceneDelegate.getLastSearch())
+        searchTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -61,8 +65,27 @@ class SearchViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func setupSearchButton(last: String?) {
+        if let last = last {
+            if !last.isEmpty {
+                lastSearchButton.isHidden = false
+                lastSearchButton.setTitle("last search: \(last)", for: .normal)
+            } else {
+                lastSearchButton.isHidden = true
+            }
+        } else {
+            lastSearchButton.isHidden = true
+        }
+    }
+    
+    @IBAction func bringSearch() {
+        searchTextField.text = sceneDelegate.getLastSearch()
+        lastSearchButton.isHidden = true
+    }
+    
     @IBAction func startSearch() {
         if self.searchTextField.text != "" {
+            sceneDelegate.setLastSearch(search: searchTextField.text!)
             performSegue(withIdentifier: "toResults", sender: nil)
         } else {
             setupAlert()

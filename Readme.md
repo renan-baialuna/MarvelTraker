@@ -1,4 +1,6 @@
 
+This application is develop in Xcode 12.5 and Swift 5
+
 Hello, this is an app design for finding information on Marvel Comics and keeping track of comics acquired and in a wish list of comics.
 
 The initial screen is design for initiating search by name or accessing the part about inventory or wishlist. In it, you can start a search using the textField
