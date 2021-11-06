@@ -122,6 +122,7 @@
 		8065527126CCA139006E7F38 = {
 			isa = PBXGroup;
 			children = (
+				803BCD922736023500C06C8D /* Readme.md */,
 				8065527C26CCA139006E7F38 /* MarvelTraker */,
 				8065527B26CCA139006E7F38 /* Products */,
 			);
@@ -152,7 +153,6 @@
 				8065528E26CCA13D006E7F38 /* Info.plist */,
 				8065528626CCA139006E7F38 /* MarvelTraker.xcdatamodeld */,
 				8065529426CCA156006E7F38 /* OTMClient.swift */,
-				803BCD922736023500C06C8D /* Readme.md */,
 			);
 			path = MarvelTraker;
 			sourceTree = "<group>";
