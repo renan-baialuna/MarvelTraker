@@ -36,7 +36,6 @@ class ComicDetailViewController: UIViewController {
         aquisitonButton.setup(text: "A Have Aquired This!", true)
         setupImage()
         titleLabel.text = comic.title
-        self.title = comic.title
         
         let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
         dataController = sceneDelegate.dataController
@@ -93,7 +92,7 @@ class ComicDetailViewController: UIViewController {
             if segue.identifier == "toImage" {
                 var vc = segue.destination as!  ImageDetailViewController
                 vc.newImage = image
-                vc.title = comic.title
+                vc.newTitle = comic.title
             }
         }
         if segue.identifier == "toDetail" {

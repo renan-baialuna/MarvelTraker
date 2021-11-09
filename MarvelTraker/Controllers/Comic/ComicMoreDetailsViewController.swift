@@ -28,7 +28,6 @@ class ComicMoreDetailsViewController: UIViewController {
     func setup() {
         titleLabel.text = comic.title
         resumeTextView.text = comic.resume
-        self.title = comic.title
         lanchDate.text = "Lauch: \(comic.launchDate.getDateString())"
         pageLabel.text = "Pages: \(comic.pages)"
         priceLabel.text = "Price: \(comic.value)"

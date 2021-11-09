@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupButton()
         setupbackground()
+        setupAlert()
         self.wishListButton.configure(image: .internalWishIcon, title: "Whish List")
         self.inventoryListButton.configure(image: .internalCollectionIcon, title: "My Comics")
         self.searchTextField.delegate = self
@@ -57,7 +58,7 @@ class SearchViewController: UIViewController {
             self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
                 
             }))
-            self.present(self.alert, animated: true, completion: nil)
+            
         }
     }
     
@@ -88,7 +89,7 @@ class SearchViewController: UIViewController {
             sceneDelegate.setLastSearch(search: searchTextField.text!)
             performSegue(withIdentifier: "toResults", sender: nil)
         } else {
-            setupAlert()
+            self.present(self.alert, animated: true, completion: nil)
         }
         
     }

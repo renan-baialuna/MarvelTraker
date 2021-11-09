@@ -33,6 +33,7 @@ class NewCaracterViewController: UIViewController {
         caracterCollection.dataSource = self
         warningView.isHidden = true
         getCaracter(name: target)
+        setupAlert()
     }
     
     func getCaracter(name: String) {
@@ -55,7 +56,7 @@ class NewCaracterViewController: UIViewController {
                     }
                     self.reloadList()
                 } else {
-                    setupAlert()
+                    self.present(self.alert, animated: true, completion: nil)
                 }
             }
         }
@@ -87,7 +88,6 @@ class NewCaracterViewController: UIViewController {
             self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
                 self.navigationController?.popToRootViewController(animated: true)
             }))
-            self.present(self.alert, animated: true, completion: nil)
         }
     }
     

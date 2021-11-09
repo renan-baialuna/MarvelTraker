@@ -35,7 +35,7 @@ class NewEventViewController: UIViewController {
         eventTable.delegate = self
         getEvents(name: target)
         warningView.isHidden = true
-        // Do any additional setup after loading the view.
+        setupAlert()
     }
     
     func getEvents(name: String) {
@@ -59,7 +59,7 @@ class NewEventViewController: UIViewController {
                     }
                     self.reloadList()
                 } else {
-                    setupAlert()
+                    self.present(self.alert, animated: true, completion: nil)
                 }
             }
         }
@@ -92,7 +92,6 @@ class NewEventViewController: UIViewController {
             self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
                 self.navigationController?.popToRootViewController(animated: true)
             }))
-            self.present(self.alert, animated: true, completion: nil)
         }
     }
     

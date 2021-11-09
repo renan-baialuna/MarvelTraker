@@ -9,6 +9,7 @@ import UIKit
 
 class ImageDetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     var newTitle: String! = ""
     var newImage = ImageFormat(path: "", extensionFormat: "jpg")
@@ -17,7 +18,7 @@ class ImageDetailViewController: UIViewController {
         super.viewDidLoad()
         self.mainImage.image = offlineImage
         
-        self.title = newTitle
+        titleLabel.text = newTitle
         if newImage.path == "" {
             
         } else {

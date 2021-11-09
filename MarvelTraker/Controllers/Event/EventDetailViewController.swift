@@ -11,6 +11,7 @@ class EventDetailViewController: UIViewController {
     var event: BasicEvent!
     var client: OTMClient = OTMClient()
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var creatorsTable: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var resumeTextView: UITextView!
@@ -28,7 +29,7 @@ class EventDetailViewController: UIViewController {
     
     func setup() {
         resumeTextView.text = event.resume
-        self.title = event.title
+        titleLabel.text = event.title
         self.dateLabel.text = event.dates
         setupImage()
         

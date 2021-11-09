@@ -9,6 +9,7 @@ import UIKit
 
 class CaracterDetailViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var caracterImageButton: UIButton!
     @IBOutlet weak var caracterBioTextView: UITextView!
     @IBOutlet weak var comicsTable: UITableView!
@@ -30,7 +31,7 @@ class CaracterDetailViewController: UIViewController {
     }
     
     func setup() {
-        self.title = caracter.name
+        titleLabel.text = caracter.name
         caracterBioTextView.text = caracter.resume == "" ? "No Resume" : caracter.resume
         setupImage()
     }
