@@ -42,15 +42,18 @@
                                         <rect key="frame" x="0.0" y="193.5" width="414" height="193.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Scearch" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P2J-UC-bML">
-                                                <rect key="frame" x="20" y="80" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="72" width="374" height="50"/>
                                                 <color key="backgroundColor" name="Secondary"/>
                                                 <color key="tintColor" red="0.60627448559999997" green="0.1105902269" blue="0.12154255059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="7NQ-5m-gg1"/>
+                                                </constraints>
                                                 <color key="textColor" name="Detail"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB9-1l-Cam">
-                                                <rect key="frame" x="40" y="129" width="354" height="27"/>
+                                                <rect key="frame" x="40" y="137" width="354" height="27"/>
                                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="15"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="Detail"/>
@@ -75,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="387" width="414" height="193.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSp-oS-c9n">
-                                                <rect key="frame" x="60" y="20" width="294" height="153.5"/>
+                                                <rect key="frame" x="20" y="40" width="374" height="113.5"/>
                                                 <color key="backgroundColor" name="Secondary"/>
                                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="40"/>
                                                 <state key="normal" title="Search">
@@ -88,11 +91,11 @@
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
                                         <constraints>
-                                            <constraint firstItem="GSp-oS-c9n" firstAttribute="top" secondItem="nz9-Ro-Pe6" secondAttribute="top" constant="20" id="3qV-I5-Cu9"/>
+                                            <constraint firstItem="GSp-oS-c9n" firstAttribute="top" secondItem="nz9-Ro-Pe6" secondAttribute="top" constant="40" id="3qV-I5-Cu9"/>
                                             <constraint firstItem="GSp-oS-c9n" firstAttribute="centerX" secondItem="nz9-Ro-Pe6" secondAttribute="centerX" id="Pph-Gr-I7x"/>
-                                            <constraint firstAttribute="trailing" secondItem="GSp-oS-c9n" secondAttribute="trailing" constant="60" id="Qvl-gN-d26"/>
-                                            <constraint firstAttribute="bottom" secondItem="GSp-oS-c9n" secondAttribute="bottom" constant="20" id="gam-rt-pCN"/>
-                                            <constraint firstItem="GSp-oS-c9n" firstAttribute="leading" secondItem="nz9-Ro-Pe6" secondAttribute="leading" constant="60" id="jVw-nm-LUZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="GSp-oS-c9n" secondAttribute="trailing" constant="20" id="Qvl-gN-d26"/>
+                                            <constraint firstAttribute="bottom" secondItem="GSp-oS-c9n" secondAttribute="bottom" constant="40" id="gam-rt-pCN"/>
+                                            <constraint firstItem="GSp-oS-c9n" firstAttribute="leading" secondItem="nz9-Ro-Pe6" secondAttribute="leading" constant="20" id="jVw-nm-LUZ"/>
                                             <constraint firstItem="GSp-oS-c9n" firstAttribute="centerY" secondItem="nz9-Ro-Pe6" secondAttribute="centerY" id="o9s-t4-h7a"/>
                                         </constraints>
                                     </view>

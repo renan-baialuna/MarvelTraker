@@ -50,10 +50,10 @@
     <resources>
         <image name="Logo" width="60" height="60"/>
         <namedColor name="Background">
-            <color red="0.18799999356269836" green="0.21999998390674591" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9882352352142334" green="0.92549026012420654" blue="0.86666667461395264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Detail">
-            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.40392156862745099" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
