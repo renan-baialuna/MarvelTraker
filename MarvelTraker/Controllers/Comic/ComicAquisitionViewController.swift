@@ -32,12 +32,16 @@ class ComicAquisitionViewController: UIViewController {
     var typeEntrance: typeData?
     
     var aditionDate: Date = Date()
+    let alert = UIAlertController(title: "Error", message: "Please add value to aquisiton", preferredStyle: UIAlertController.Style.alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAlert()
         if let unit = unitComic {
             setInitialValues(base: unit.comic)
             
+        } else {
+            conditionSlide.setValue(5.0, animated: false)
         }
         setupbackground()
         let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
@@ -46,11 +50,20 @@ class ComicAquisitionViewController: UIViewController {
     }
     
     func setInitialValues(base: BasicComicInventory) {
-        conditionSlide.setValue(base.condition, animated: true)
         stateLabel.text = base.condition.getCondition
         datePicker.setDate(base.aquisitonDate, animated: true)
         stateField.text = base.condition.simplefy()
         valueTextField.text = base.price.simplefy()
+        conditionSlide.setValue(base.condition, animated: true)
+    }
+    
+    func setupAlert() {
+        DispatchQueue.main.async {
+            self.alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+                
+            }))
+            
+        }
     }
     
     func setupbackground() {
@@ -106,10 +119,6 @@ class ComicAquisitionViewController: UIViewController {
         
     }
     
-    func changeInventory() {
-        
-    }
-    
     func addFromWish() {
         if let unit = unitWish {
             addToInventory(unit.comic)
@@ -136,16 +145,25 @@ class ComicAquisitionViewController: UIViewController {
     
     
     @IBAction func saveDate(_ sender: Any) {
-        switch typeEntrance {
-        case .modification:
-            modifyInventory()
-        case .adition:
-            addToInventory(self.comic)
-            navigationController?.popViewController(animated: true)
-        case .aditionWish:
-            addFromWish()
-        default:
-            navigationController?.popToRootViewController(animated: true)
+        if let text = valueTextField.text {
+            if !text.isEmpty {
+                switch typeEntrance {
+                case .modification:
+                    modifyInventory()
+                case .adition:
+                    addToInventory(self.comic)
+                    navigationController?.popViewController(animated: true)
+                case .aditionWish:
+                    addFromWish()
+                default:
+                    navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                self.present(self.alert, animated: true, completion: nil)
+            }
+
+        } else {
+            self.present(self.alert, animated: true, completion: nil)
         }
     }
 }

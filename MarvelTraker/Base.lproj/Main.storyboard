@@ -189,7 +189,7 @@
                                                                 <constraint firstAttribute="height" constant="24" id="wxb-hX-tTd"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="15"/>
-                                                            <color key="textColor" name="Selection"/>
+                                                            <color key="textColor" name="Detail"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderComic" translatesAutoresizingMaskIntoConstraints="NO" id="psg-US-Zhd">
@@ -740,25 +740,9 @@
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0h-8x-PHq">
                                                         <rect key="frame" x="0.0" y="324" width="414" height="50"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goo-nh-saJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                                <color key="backgroundColor" name="Secondary"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="0IB-Sl-SuN"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Link" image="webIcon"/>
-                                                                <connections>
-                                                                    <action selector="toWebview" destination="2H9-KZ-2Md" eventType="touchUpInside" id="rnI-M8-jaK"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
                                                         <color key="backgroundColor" name="Background"/>
                                                         <constraints>
-                                                            <constraint firstItem="goo-nh-saJ" firstAttribute="leading" secondItem="A0h-8x-PHq" secondAttribute="leading" id="D6L-9d-6DM"/>
                                                             <constraint firstAttribute="height" constant="50" id="Rde-MT-PtA"/>
-                                                            <constraint firstAttribute="trailing" secondItem="goo-nh-saJ" secondAttribute="trailing" id="VDf-lF-3gf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="goo-nh-saJ" secondAttribute="bottom" id="x1T-Is-e6x"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -821,7 +805,6 @@
                         <outlet property="caracterBioTextView" destination="cxB-Wa-pSL" id="KJg-mW-1Mt"/>
                         <outlet property="caracterImageButton" destination="Wuz-Dk-CrS" id="uUw-oW-YlX"/>
                         <outlet property="comicsTable" destination="XKZ-jk-Ne6" id="Z4S-1u-1ON"/>
-                        <outlet property="linkButton" destination="goo-nh-saJ" id="LS5-Kg-6Ga"/>
                         <outlet property="titleLabel" destination="tTl-O4-XwC" id="ERh-gM-wxi"/>
                         <segue destination="6bl-So-kLS" kind="show" identifier="toWebview" id="vj3-Bn-ClG"/>
                         <segue destination="yKU-T0-KRD" kind="show" identifier="toImage" id="jj1-ZY-Hsw"/>
@@ -1477,11 +1460,12 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KsL-Wg-Vov">
                                                 <rect key="frame" x="99" y="30" width="80" height="34"/>
-                                                <color key="backgroundColor" name="Secondary"/>
+                                                <color key="backgroundColor" name="Background"/>
+                                                <color key="tintColor" name="Detail"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="sFb-NV-gsw"/>
                                                 </constraints>
-                                                <color key="textColor" name="Selection"/>
+                                                <color key="textColor" name="Detail"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
@@ -1667,7 +1651,7 @@
                                                                 <constraint firstAttribute="height" constant="23.5" id="exN-Nh-aJx"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
-                                                            <color key="textColor" name="Selection"/>
+                                                            <color key="textColor" name="Detail"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1786,7 +1770,7 @@
                                                         <constraint firstAttribute="height" constant="50" id="kl5-GS-qUb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="20"/>
-                                                    <color key="textColor" name="Selection"/>
+                                                    <color key="textColor" name="Detail"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oNP-Z3-fzs">
@@ -1998,7 +1982,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUG-42-irS">
                                                             <rect key="frame" x="120" y="10" width="264" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="15"/>
-                                                            <color key="textColor" name="Selection"/>
+                                                            <color key="textColor" name="Detail"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-F0-vKU">
@@ -2010,7 +1994,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUd-7Z-Gl4">
                                                             <rect key="frame" x="125" y="31.5" width="174" height="14"/>
                                                             <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="12"/>
-                                                            <color key="textColor" name="Selection"/>
+                                                            <color key="textColor" name="Detail"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OHt-Mj-MNQ">
@@ -2155,7 +2139,7 @@
                                                                         <constraint firstAttribute="height" constant="35" id="Rgc-Ey-I1u"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="15"/>
-                                                                    <color key="textColor" name="Selection"/>
+                                                                    <color key="textColor" name="Detail"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYb-NX-kNM">
@@ -2249,7 +2233,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cdO-Ak-l5J"/>
-        <segue reference="tle-Nn-3BQ"/>
+        <segue reference="jj1-ZY-Hsw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>
@@ -2265,7 +2249,6 @@
         <image name="eventFull" width="35.5" height="35.5"/>
         <image name="excludeIcon" width="22" height="22"/>
         <image name="lupe" width="44.5" height="44.5"/>
-        <image name="webIcon" width="77.5" height="51"/>
         <namedColor name="Background">
             <color red="0.9882352352142334" green="0.92549026012420654" blue="0.86666667461395264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -13,7 +13,6 @@ class CaracterDetailViewController: UIViewController {
     @IBOutlet weak var caracterImageButton: UIButton!
     @IBOutlet weak var caracterBioTextView: UITextView!
     @IBOutlet weak var comicsTable: UITableView!
-    @IBOutlet weak var linkButton: UIButton!
     
     var caracter: BasicCharacter!
     var client: OTMClient = OTMClient()
@@ -54,10 +53,6 @@ class CaracterDetailViewController: UIViewController {
             }
             task.resume()
         }
-    }
-    
-    @IBAction func toWebview() {
-        performSegue(withIdentifier: "toWebview", sender: nil)
     }
     
     @IBAction func toImage() {

@@ -115,9 +115,8 @@ extension NewCaracterViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "caracterCell", for: indexPath) as! CaracterCollectionViewCell
         let character = caracters[indexPath.row]
-        cell.mainImage.image = character.image
-        cell.mainLabel.text = character.base.name
         
+        cell.setup(image: character.image, title: character.base.name)
         return cell
     }
     

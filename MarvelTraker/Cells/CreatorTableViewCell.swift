@@ -15,16 +15,12 @@ class CreatorTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         mainView.backgroundColor = .secondary
-//        mainView.layer.cornerRadius = 10
         mainView.layer.borderWidth = 2
         mainView.layer.borderColor = UIColor.detail.cgColor
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
