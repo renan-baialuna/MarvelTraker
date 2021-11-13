@@ -48,7 +48,7 @@ class NewCaracterViewController: UIViewController {
                             warningView.isHidden = false
                         } else {
                             for i in results {
-                                var newCaracter = UnitCaracter(base: client.translateAPI(base: i), image: .internalEventPlaceholder)
+                                var newCaracter = UnitCaracter(base: client.translateAPI(base: i), image: .internalCharaterPlaceholder)
                                 caracters.append(newCaracter)
                                 getImage(caracter: newCaracter)
                             }

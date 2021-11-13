@@ -327,7 +327,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dvf-q8-B2v" secondAttribute="height" multiplier="216:324" id="WVY-G0-cMb"/>
                                                 </constraints>
-                                                <state key="normal" image="excludeIcon"/>
+                                                <state key="normal" image="PlaceholderComic"/>
                                                 <connections>
                                                     <action selector="openImage" destination="3GO-Rc-JYl" eventType="touchUpInside" id="Ldp-M4-u8z"/>
                                                 </connections>
@@ -2236,14 +2236,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cdO-Ak-l5J"/>
-        <segue reference="jj1-ZY-Hsw"/>
+        <segue reference="wjZ-08-ur2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CaracterFull" width="26.5" height="26.5"/>
         <image name="CaracterPlaceholder" width="80" height="110"/>
         <image name="EditIcon" width="33" height="33"/>
         <image name="InfoIcon" width="15.5" height="15.5"/>
-        <image name="Logo" width="60" height="60"/>
+        <image name="Logo" width="216.5" height="216.5"/>
         <image name="PlaceholderComic" width="80" height="110"/>
         <image name="caracterEmpty" width="27" height="27"/>
         <image name="comicEmpty" width="34" height="32.5"/>
